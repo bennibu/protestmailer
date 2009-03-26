@@ -1,0 +1,30 @@
+# == Schema Information
+# Schema version: 20090326120345
+#
+# Table name: protest_mails
+#
+#  id          :integer         not null, primary key
+#  subject     :string(255)
+#  body        :text
+#  activist_id :integer
+#  token       :string(255)
+#  send_at     :datetime
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subject: MyString
+  body: MyText
+  activist: 
+  token: MyString
+  send_at: 2009-03-26 13:03:45
+
+two:
+  subject: MyString
+  body: MyText
+  activist: 
+  token: MyString
+  send_at: 2009-03-26 13:03:45
