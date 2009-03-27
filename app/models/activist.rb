@@ -19,10 +19,15 @@
 
 class Activist < ActiveRecord::Base
 
-  EMAIL_NAME_REGEX  = '[\w\.%\+\-]+'.freeze
-  DMOAIN_HEAD_REGEX = '(?:[A-Z0-9\-]+\.)+'.freeze
-  DOMAIN_TLD_REGEX  = '(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)'.freeze
-  EMAIL_REGEX       = /\A#{email_name_regex}@#{domain_head_regex}#{domain_tld_regex}\z/i
+  SEX = %w(Frau Herr)
+  EMAIL_NAME_REGEX  = '[\w\.%\+\-]+'
+  DMOAIN_HEAD_REGEX = '(?:[A-Z0-9\-]+\.)+'
+  DOMAIN_TLD_REGEX  = '(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)'
+  EMAIL_REGEX       = /\A#{EMAIL_NAME_REGEX}@#{DMOAIN_HEAD_REGEX}#{DOMAIN_TLD_REGEX}\z/i
 
+
+  validates_presence_of :sex, :forename, :surename, :street, :zipcode, :city, :email
+  validates_numericality_of :sex, :in => 0..1
+  validates_length_of :forename, :surename, :street, :zipcode, :city, :email, :in => 2..255
   validates_format_of :email, :with => EMAIL_REGEX, :message => "sollte wie eine gültige Email-Adresse aussehen."
 end
