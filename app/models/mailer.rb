@@ -12,7 +12,7 @@ class Mailer < ActionMailer::Base
 
   def protest_mail(protest_mail)
     subject    protest_mail.subject
-    recipients APP_CONFIG[:protest_mail]['recipients'].join(", ")
+    recipients APP_CONFIG[:protest_mail]['recipients']
     from       "#{protest_mail.activist.name} <#{protest_mail.activist.email}>"
     
     body       :protest_mail => protest_mail,

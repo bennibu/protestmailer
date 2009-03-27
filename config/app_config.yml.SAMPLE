@@ -1,19 +1,28 @@
-development:
-  domain: localhost:3000
+development: &defaults
+  base_url: http://localhost:3000
   mail_sender: info@kampagnenslogan.local
   protest_mail:
     recipients:
-      - benni <benni@krimskrams.local>
-    subject: kampagnenslogan
+      - benni <benni@bad_company.local>
+    subject: Vattenfall sucks!
     body:
       Ein langer Text ...
 
       Mit vielen Absätzen
+
       noch einer
-      nund noch einer
+
+      nund noch einerr
+  notification:
+    error_recipients:
+      - admin@kampagnenslogan.local
+    sender_address: "\"ProtestMailer Error\" <admin@kampagnenslogan.local>"
+    email_prefix: "[ProtestMailer] "
 
 test:
-  domain: test.host
+  <<: *defaults
+  base_url: http://localhost:3000
 
 production:
-  domain: example.com
+  <<: *defaults
+  base_url: http://www.kampagnenslogan.de
