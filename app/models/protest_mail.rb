@@ -18,11 +18,13 @@ require 'digest/sha1'
 class ProtestMail < ActiveRecord::Base
   belongs_to :activist
 
-  validates_presence_of :subject, :body, :activist_id, :token
+  validates_presence_of :subject, :body, :token
   validates_length_of :subject, :in => 10..255
   validates_length_of :body, :minimum => 10
 
   before_validation_on_create :set_token
+
+  accepts_nested_attributes_for :activist
 
   protected
 

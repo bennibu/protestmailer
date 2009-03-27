@@ -1,0 +1,2 @@
+module ProtestHelper
+end

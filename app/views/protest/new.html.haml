@@ -1,0 +1,60 @@
+- title "Mitmachen!"
+
+%p
+  Hier kannst Du Dampf ablassen und den Verantwortlichen mal ordentlich
+  Deine Meinung sagen. Um das mit Fakten zu unterfüttern, haben wir einen kleinen
+  Text vorbereitet, den Du aber selbstverständlich abändern darfst. Nein, wir forden
+  Dich dazu sogar auf!
+
+- form_for(@protest_mail, :url => {:controller => 'protest', :action => 'create'}) do |mail_form|
+  = mail_form.error_messages
+
+  %p
+    %b Betreff
+    %br/
+    = mail_form.text_field :subject
+  %p
+    %b Inhalt
+    %br/
+    = mail_form.text_area :body, :size => "60x30"
+
+  - mail_form.fields_for :activist do |activist_form|
+    %p
+      = activist_form.select :sex, [["Frau", 0], ["Herr", 1]]
+    %p
+      %b Titel
+      %br/
+      = activist_form.text_field :title
+    %p
+      %b Vorname
+      %br/
+      = activist_form.text_field :forename
+    %p
+      %b Nachname
+      %br/
+      = activist_form.text_field :surename
+    %p
+      %b E-Mail
+      %br/
+      = activist_form.text_field :email
+    %p
+      %b Strasse und Hausnr.
+      %br/
+      = activist_form.text_field :street
+    %p
+      %b PLZ
+      %br/
+      = activist_form.text_field :zipcode
+    %p
+      %b Stadt
+      %br/
+      = activist_form.text_field :city
+    %p
+      %b Tätigkeit
+      %br/
+      = activist_form.text_field :job
+  %p
+    = mail_form.submit "Protestbrief verschicken"
+    |
+    = link_to "Abbrechen", :back
+

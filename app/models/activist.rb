@@ -18,8 +18,7 @@
 #
 
 class Activist < ActiveRecord::Base
-
-  SEX = %w(Frau Herr)
+  
   EMAIL_NAME_REGEX  = '[\w\.%\+\-]+'
   DMOAIN_HEAD_REGEX = '(?:[A-Z0-9\-]+\.)+'
   DOMAIN_TLD_REGEX  = '(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)'

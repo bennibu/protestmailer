@@ -79,3 +79,13 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+#footer {
+  border-top: 1px solid grey;
+  margin-top: 1em;
+}
+
+#footer a {
+  color: grey;
+  font-size: 0.8em;
+}

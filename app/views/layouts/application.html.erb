@@ -18,6 +18,7 @@
       
       <%= yield %>
       <div id="footer">
+        <%= link_to "Startseite", root_path %>
         <%= link_to "Impressum", :controller => "site", :action => "terms" %>
         <%= link_to "Datenschutz", :controller => "site", :action => "privacy" %>
         <%= link_to "Kontakt", :controller => "site", :action => "contact" %>
