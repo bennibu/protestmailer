@@ -1,5 +1,16 @@
 development:
   domain: localhost:3000
+  mail_sender: info@kampagnenslogan.local
+  protest_mail:
+    recipients:
+      - benni <benni@krimskrams.local>
+    subject: kampagnenslogan
+    body:
+      Ein langer Text ...
+
+      Mit vielen Absätzen
+      noch einer
+      nund noch einer
 
 test:
   domain: test.host
