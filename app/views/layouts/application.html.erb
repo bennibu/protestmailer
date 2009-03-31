@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
     <title><%= h(yield(:title) || "Vattenfall sucks!") %></title>
@@ -8,20 +8,42 @@
   </head>
   <body>
     <div id="container">
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
-      
-      <%- if show_title? -%>
-        <h1><%=h yield(:title) %></h1>
-      <%- end -%>
-      
-      <%= yield %>
+      <div id="header">
+        <div id="slogan">
+          <h1>Vattenfall hat ausgekohlt!</h1>
+          Vattenfall verklagt Klimaschützer. Tu etwas dagegen!
+        </div>
+      </div>
+      <div id="menu">
+        <ul>
+          <li><a href="">Mitmachen</a></li>
+          <li><a href="">News</a></li>
+          <li><a href="">Unterstüzerinnen</a></li>
+          <li><a href="">Hintergrund</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          <%- end -%>
+
+          <%- if show_title? -%>
+            <h2><%=h yield(:title) %></h2>
+          <%- end -%>
+
+          <%= yield %>
+        </div>
+        <div id="sidebar">
+          Sidebar ...
+        </div>
+      </div>
       <div id="footer">
         <%= link_to "Startseite", root_path %>
         <%= link_to "Impressum", :controller => "site", :action => "terms" %>
         <%= link_to "Datenschutz", :controller => "site", :action => "privacy" %>
         <%= link_to "Kontakt", :controller => "site", :action => "contact" %>
+      </div>
     </div>
   </body>
 </html>
