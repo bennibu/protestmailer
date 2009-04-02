@@ -1,14 +1,16 @@
 - title "Mitmachen!"
 
 %p
-  Hier kannst Du Dampf ablassen und den Verantwortlichen mal ordentlich
-  Deine Meinung sagen. Um das mit Fakten zu unterfüttern, haben wir einen kleinen
-  Text vorbereitet, den Du aber selbstverständlich abändern darfst. Nein, wir forden
-  Dich dazu sogar auf!
+  Schreib dem Vattenfall Vorstand Deine Meinung!
+  Den vorformulierten Text kannst Du anpassen und mit Name, Adresse und Email (nötig zur Bestätigung) versenden.
+  Dieser Brief geht an:
+  %ul
+    %li Tuomas Hataka (Vorstandsvorsitzender Vattenfall Europe AG)
+    %li \...
 
 - form_for(@protest_mail, :url => {:controller => 'protest', :action => 'create'}) do |mail_form|
   = mail_form.error_messages
-
+  %h3 Email
   %p
     %b Betreff
     %br/
@@ -19,6 +21,7 @@
     = mail_form.text_area :body, :size => "60x30"
 
   - mail_form.fields_for :activist do |activist_form|
+    %h3 Deine Daten
     %p
       = activist_form.select :sex, [["Frau", 0], ["Herr", 1]]
     %p
@@ -53,6 +56,9 @@
       %b Tätigkeit
       %br/
       = activist_form.text_field :job
+    %p
+      %b Newsletter
+      = activist_form.check_box :newsletter
   %p
     = mail_form.submit "Protestbrief verschicken"
     |

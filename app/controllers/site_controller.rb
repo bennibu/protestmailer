@@ -2,6 +2,15 @@ class SiteController < ApplicationController
   def index
   end
 
+  def news
+  end
+
+  def supported
+  end
+  
+  def story
+  end
+
   def terms
   end
 

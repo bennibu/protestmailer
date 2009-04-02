@@ -1,8 +1,17 @@
-Hallo <%= @activist.name %>
+Hallo <%= @activist.name %>,
 
-Damit die Protestmail verschickt werden kann folge bitte diesem Link:
+eine/r hat auf der Website <%= APP_CONFIG[:base_url] %>/protest Deine Emailadresse eingetragen,
+um Protestbriefe an Vattenfall zu verschicken. Um die Briefe endgültig abzuschicken, bitte hier bestätigen:
+
   <%= @link %>
 
+Falls Du Deine Email-Adresse nicht eingetragen hast, willst Du ja vielleicht selbst einen Protestbrief an Vattenfall formulieren: <%= APP_CONFIG[:base_url] %>
+
+Klima-Killer vor Gericht, Klimaschützer freisprechen!
+
+Deine
+Kampagne Ausgekohlt!
+
 --
-KampagneXY
+Kampagne Ausgekohlt!
 Im Internet unter: <%= APP_CONFIG[:base_url] %>

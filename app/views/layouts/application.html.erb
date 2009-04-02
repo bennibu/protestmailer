@@ -3,7 +3,7 @@
 <html>
   <head>
     <title><%= h(yield(:title) || "Vattenfall sucks!") %></title>
-    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'base' %>
     <%= yield(:head) %>
   </head>
   <body>
@@ -16,10 +16,10 @@
       </div>
       <div id="menu">
         <ul>
-          <li><a href="">Mitmachen</a></li>
-          <li><a href="">News</a></li>
-          <li><a href="">Unterstüzerinnen</a></li>
-          <li><a href="">Hintergrund</a></li>
+          <li><%= link_to "Mitmachen", :controller => 'protest' -%></li>
+          <li><%= link_to "News", :controller => 'site', :action => "news" -%></li>
+          <li><%= link_to "Unterstützerinnen", :controller => 'site', :action => "supported" -%></li>
+          <li><%= link_to "Hintergrund", :controller => 'site', :action => "story" -%></li>
         </ul>
       </div>
       <div id="content">
