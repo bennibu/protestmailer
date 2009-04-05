@@ -63,7 +63,13 @@ a {
 #sidebar {
   float: right;
   width: 179px;
-  background: #485057 url(../images/sidebar-corner.png) no-repeat top left; }
+  background: #fff url(../images/sidebar-corner.png) no-repeat top left; }
+  #sidebar .inner {
+    background: #485057 url(../images/sidebar-corner-bl.png) no-repeat bottom left;
+    padding-bottom: 0.1em; }
+  #sidebar .button {
+    text-align: center;
+    margin: 1em 0; }
 
 #main p {
   margin: 1em 0; }

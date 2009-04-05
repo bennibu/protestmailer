@@ -35,7 +35,16 @@
           <%= yield %>
         </div>
         <div id="sidebar">
-          Sidebar ...
+          <div class="inner">
+            <div class="button">
+              <%= link_to image_tag("button_protest.gif"), {:controller => 'protest'}, :title => "Mitmachen" -%>
+            </div>
+            <div class="button">
+              <%= link_to image_tag("button_supported.gif"), {:controller => 'site', :action => "supported"}, :title => "Unterstützerinnen zeigen" -%>
+            </div>
+            <div class="button"><%= image_tag("picto_trash.gif") -%></div>
+            <div class="button"><%= image_tag("picto_nocoal.gif") -%></div>
+          </div>
         </div>
       </div>
       <div id="footer">
