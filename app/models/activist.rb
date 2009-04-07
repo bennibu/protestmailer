@@ -33,4 +33,5 @@ class Activist < ActiveRecord::Base
   def name
     "#{forename} #{surename}"
   end
+
 end

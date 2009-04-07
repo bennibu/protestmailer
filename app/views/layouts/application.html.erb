@@ -25,7 +25,7 @@
       <div id="content">
         <div id="main">
           <%- flash.each do |name, msg| -%>
-            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            <%= content_tag :div, msg, :id => "flash_#{name}", :class => 'flash_box' %>
           <%- end -%>
 
           <%- if show_title? -%>

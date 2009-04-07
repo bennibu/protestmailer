@@ -1,0 +1,56 @@
+- title "Freunde informieren"
+
+%p
+  Damit der Protest gegen Vattenfall richtig wirkt, müssen wir viele Menschen sein. Du kannst diese Online-Aktion weiterempfehlen, indem Du hier eine Email an Freunde und Bekannte schickst:
+
+  %div#tellafriend
+    - if @error_message
+      .flash_box
+        = @error_message
+    %p
+      = form_tag(:controller => 'tellafriend', :action => 'send_to_friends')
+
+      %p
+        %h1 Freunde informieren
+        Ich möchte folgende Freunde über diese Online-Aktion informieren:
+        %br/
+
+
+        %label{ :for => "email_1" } E-Mail 1:
+        = text_field_tag("email_1", @email_1, :class => @email_1_class)
+        %br/
+
+        %label{ :for => "email_2" } E-Mail 2:
+        = text_field_tag("email_2", @email_2, :class => @email_2_class)
+        %br/
+
+        %label{ :for => "email_3" } E-Mail 3:
+        = text_field_tag("email_3", @email_3, :class => @email_3_class)
+        %br/
+
+        %label{ :for => "email_4" } E-Mail 4:
+        = text_field_tag("email_4", @email_4, :class => @email_4_class)
+
+      %p
+        Meine Angaben, damit meine Freunde wissen wer ihnen die Online-Aktion empfiehlt:
+        %br/
+
+        %label{ :for => "name" } Eigener Name:
+        = text_field_tag("name", @name, :class => @name_class)
+        %br/
+
+        %label{ :for => "ownmail" } Eigene E-Mail:
+        = text_field_tag("ownmail", @ownmail, :class => @ownmail_class)
+
+      %p
+        Ich möchte folgende Bemerkung in die Mail an meine Freunde einfügen:
+        %br/
+        %br/
+        = text_area_tag("message", @message, :size => "30x5")
+
+      %p#tellafriend_submit
+        = submit_tag(value = "Freunde informieren")
+
+      
+      %div#small_decription
+        Die Daten werden von uns nicht gespeichert, sondern dienen nur zum Verschicken der Empfehlung!

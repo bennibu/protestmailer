@@ -8,59 +8,59 @@
     %li Tuomas Hataka (Vorstandsvorsitzender Vattenfall Europe AG)
     %li \...
 
-- form_for(@protest_mail, :url => {:controller => 'protest', :action => 'create'}) do |mail_form|
-  = mail_form.error_messages
-  %h3 Email
-  %p
-    %b Betreff
-    %br/
-    = mail_form.text_field :subject
-  %p
-    %b Inhalt
-    %br/
-    = mail_form.text_area :body, :size => "60x30"
+#signer
+  - form_for(@protest_mail, :url => {:controller => 'protest', :action => 'create'}) do |mail_form|
+    = mail_form.error_messages :header_message => 'Ihre Angaben sind unvollständig'
 
-  - mail_form.fields_for :activist do |activist_form|
-    %h3 Deine Daten
     %p
-      = activist_form.select :sex, [["Frau", 0], ["Herr", 1]]
+      %h1 Ihre persönlichen Daten:
+
+      - mail_form.fields_for :activist do |activist_form|
+        %label{ :for => "protest_mail_activist_attributes_title" } Anrede*/Titel
+        = activist_form.select :sex, [["Frau", 0], ["Herr", 1]]
+        = activist_form.text_field :title, :class => "mittel"
+        %br/
+
+        %label{ :for => "protest_mail_activist_attributes_forename" } Vor*-/Name*:
+        = activist_form.text_field :forename, :class => "mittel"
+        = activist_form.text_field :surename, :class => "mittel"
+        %br/
+
+        %label{ :for => "protest_mail_activist_attributes_street" } Straße/Hnr*:
+        = activist_form.text_field :street, :class => "sehrgross"
+        %br/
+
+        %label{ :for => "protest_mail_activist_attributes_zipcode" } PLZ*/Ort*:
+        = activist_form.text_field :zipcode, :class => "klein"
+        = activist_form.text_field :city, :class => "gross"
+        %br/
+
+        %label{ :for => "protest_mail_activist_attributes_email" } E-Mail*:
+        = activist_form.text_field :email, :class => "sehrgross"
+        %br/
+
+        %label{ :for => "protest_mail_activist_attributes_zipcode" } Tätigkeit:
+        = activist_form.text_field :job, :class => "sehrgross"
+        %br/
+
+        #newslettercheckbox
+          = activist_form.check_box :newsletter, :checked => "checked"
+          %p
+            %small Bitte informieren Sie mich über den Fortgang dieser und weiterer Aktionen.
+
+
     %p
-      %b Titel
+      %h1 Folgende E-Mail wird an Vattenfall gesendet:
+
+      %label{ :for => "protest_mail_subject" } Betreff
+      = mail_form.text_field :subject, :class => "sehrgross"
+
+      %label{ :for => "protest_mail_body" } Inhalt
+      = mail_form.text_area :body, :size => "45x20"
+
+    %p
       %br/
-      = activist_form.text_field :title
-    %p
-      %b Vorname
-      %br/
-      = activist_form.text_field :forename
-    %p
-      %b Nachname
-      %br/
-      = activist_form.text_field :surename
-    %p
-      %b E-Mail
-      %br/
-      = activist_form.text_field :email
-    %p
-      %b Strasse und Hausnr.
-      %br/
-      = activist_form.text_field :street
-    %p
-      %b PLZ
-      %br/
-      = activist_form.text_field :zipcode
-    %p
-      %b Stadt
-      %br/
-      = activist_form.text_field :city
-    %p
-      %b Tätigkeit
-      %br/
-      = activist_form.text_field :job
-    %p
-      %b Newsletter
-      = activist_form.check_box :newsletter
-  %p
-    = mail_form.submit "Protestbrief verschicken"
-    |
-    = link_to "Abbrechen", :back
+      = mail_form.submit "Protestbrief verschicken"
+      |
+      = link_to "Abbrechen", :back
 

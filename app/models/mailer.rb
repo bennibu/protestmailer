@@ -19,4 +19,13 @@ class Mailer < ActionMailer::Base
                :activist => protest_mail.activist
   end
 
+  def invitation(to_email, from_email, from_name, message)
+    subject       APP_CONFIG[:invitation]['subject']
+    recipients    to_email
+    from          from_email
+
+    body          :from_name => from_name.gsub(/<\/?[^>]*>/,  ""),
+                  :message => message.gsub(/<\/?[^>]*>/,  "")
+  end
+
 end

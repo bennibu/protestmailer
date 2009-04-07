@@ -14,9 +14,9 @@ class ProtestController < ApplicationController
   def create
     @protest_mail = ProtestMail.new(params[:protest_mail])
     if @protest_mail.save
-      flash[:notice] = "Protestmail wurde gespeichert. Du erhälst ein E-Mail mit einem Link zur Bestätitung."
+      flash[:notice] = "Protestmail wurde gespeichert. Du erhälst nun eine E-Mail mit einem Link zur Bestätitung."
       Mailer.deliver_verification(@protest_mail)
-      redirect_to :action => 'verify'
+      render :action => 'verify'
     else
       render :action => 'new'
     end

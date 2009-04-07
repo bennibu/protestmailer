@@ -19,6 +19,9 @@ development: &defaults
     sender_address: "\"ProtestMailer Error\" <admin@kampagnenslogan.local>"
     email_prefix: "[ProtestMailer] "
 
+  invitation:
+    subject: Einladung zur Online-Aktion
+
 test:
   <<: *defaults
   base_url: http://localhost:3000
