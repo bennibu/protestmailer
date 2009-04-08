@@ -121,6 +121,7 @@ de:
     models:
       protest_mail: Protestmail
       activist: Aktivistin
+      invitation: Einladung
       
     attributes:
       protest_mail:
@@ -134,3 +135,8 @@ de:
         zipcode: Postleitzahl
         city: Stadt
         email: E-Mail
+      invitation:
+        recipients: Empfänger E-Mails
+        sender_name: Absendername
+        sender_email: Absender E-Mail
+        message: Nachricht
