@@ -1,4 +1,7 @@
-%p
-  %label{:for => "invitation_recipients"} E-Mail:
-  %br/
-  = text_field_tag "invitation[recipients][]", recipient
+.group
+  .left
+    %label{:for => "invitation_recipients"} E-Mail:
+  .right
+    = text_field_tag "invitation[recipients][]", recipient
+    = link_to_function "entfernen", "$(this).up('.group').remove()"
+  .clear

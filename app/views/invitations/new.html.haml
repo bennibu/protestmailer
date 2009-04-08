@@ -4,41 +4,44 @@
   Damit der Protest gegen Vattenfall richtig wirkt, müssen wir viele Menschen sein.
   Du kannst diese Online-Aktion weiterempfehlen, indem Du hier eine Email an Freunde und Bekannte schickst:
 
-  #tellafriend
-    - form_for(@invitation, :url => {:controller => 'invitations', :action => 'create'}) do |form|
-      = form.error_messages
-      %p
-        %h1 Freunde informieren
-        Ich möchte folgende Freunde über diese Online-Aktion informieren:
-        %br/
+.form
+  - form_for(@invitation, :url => {:controller => 'invitations', :action => 'create'}) do |form|
+    = form.error_messages :header_message => "Einladung konnte nicht verschickt werden."
+    
+    %h3 Empfänger
+    %p Ich möchte folgende Freunde über diese Online-Aktion informieren:
+    #recipients
+      .group
+        .left
+          %label{:for => "invitation_recipient_email"} E-Mail:
+        .right
+          = form.text_field :recipient_email, :size => 20
+        .clear
+      = render :partial => 'recipient', :collection => @invitation.recipients
+    = add_recipient_link "Weiteren Empfänger hinzufügen"
 
-      #recipients
-        %label{:for => "invitation_recipient_email"} E-Mail:
-        %br/
-        = form.text_field :recipient_email
-      
-        = render :partial => 'recipient', :collection => @invitation.recipients
-      = add_recipient_link "Weiteren Empfänger hinzufügen"
-
-      %p
-        Meine Angaben, damit meine Freunde wissen wer ihnen die Online-Aktion empfiehlt:
-        %br/
-
+    %h3 Absender
+    %p Meine Angaben, damit meine Freunde wissen wer ihnen die Online-Aktion empfiehlt:
+    .group
+      .left
         %label{ :for => "invitation_sender_name" } Eigener Name:
-        = form.text_field :sender_name
-        %br/
-
+      .right
+        = form.text_field :sender_name, :size => 20
+      .clear
+    .group
+      .left
         %label{ :for => "invitation_sender_email" } Eigene E-Mail:
-        = form.text_field :sender_email
+      .right
+        = form.text_field :sender_email, :size => 20
+      .clear
 
-      %p
-        Ich möchte folgende Bemerkung in die Mail an meine Freunde einfügen:
-        %br/
-        %br/
-        = form.text_area :message, :size => "30x5"
+    %p
+      Ich möchte folgende Bemerkung in die Mail an meine Freunde einfügen:
+      %br/
+      = form.text_area :message, :size => "30x5"
 
-      %p#tellafriend_submit
-        = form.submit "Freunde informieren"
+    %p
+      = form.submit "Freunde informieren"
 
-      #small_decription
-        Die Daten werden von uns nicht gespeichert, sondern dienen nur zum Verschicken der Empfehlung!
+    #small_decription
+      Die Daten werden von uns nicht gespeichert, sondern dienen nur zum Verschicken der Empfehlung!

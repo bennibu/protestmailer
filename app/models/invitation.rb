@@ -38,7 +38,7 @@ class Invitation
     unless recipients.nil?
       recipients.delete_if { |r| r.empty? }.each do |email|
         unless email =~ EMAIL_REGEX
-          self.errors.add(:recipients, "sind nicht gültig") and return
+          self.errors.add(:recipients, "haben keine gültige E-Mail-Adresse") and return
         end
       end
     end

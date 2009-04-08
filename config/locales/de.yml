@@ -136,7 +136,8 @@ de:
         city: Stadt
         email: E-Mail
       invitation:
-        recipients: Empfänger E-Mails
+        recipient_email: Empfänger E-Mail
+        recipients: Weitere Empfänger
         sender_name: Absendername
         sender_email: Absender E-Mail
         message: Nachricht

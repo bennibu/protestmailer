@@ -4,7 +4,7 @@
 
 body {
   background-color: #fff;
-  font-family: Verdana, Helvetica, Arial, Sans;
+  font-family: Helvetica,Arial,Verdana,"Sans Serif";
   font-size: 14px; }
 
 a img {
@@ -58,13 +58,16 @@ a {
 #main {
   padding: 20px 20px;
   float: left;
-  width: 510px; }
+  width: 510px;
+  font-size: 13px; }
   #main p {
     margin: 1em 0; }
   #main ul {
     margin-bottom: 1em; }
     #main ul li {
       margin-left: 2em; }
+  #main a {
+    color: #000; }
 
 #sidebar {
   float: right;
@@ -90,10 +93,8 @@ a {
   background-color: #FCC;
   border: solid 1px #C66; }
 
-.fieldWithErrors {
-  display: inline; }
-
 #errorExplanation {
+  margin: auto;
   width: 400px;
   border: 2px solid #CF0000;
   padding: 0px;
@@ -131,8 +132,10 @@ a {
   color: grey;
   font-size: 0.8em; }
 
-.fieldWithErrors input {
-  background-color: #ff9f9f; }
+.fieldWithErrors {
+  display: inline; }
+  .fieldWithErrors input {
+    background-color: #ff9f9f; }
 
 input.klein {
   width: 50px;
@@ -263,3 +266,24 @@ input.sehrgross_red {
   font-size: 14px;
   text-align: center;
   font-weight: bolder; }
+
+.form {
+  background-color: #F9F9F9;
+  border: 1px solid #777777;
+  padding: 0 1em 1em; }
+  .form h3 {
+    margin-top: 1em; }
+
+.group {
+  margin: 0.7em 0; }
+
+.left {
+  float: left;
+  width: 20%; }
+
+.right {
+  float: right;
+  width: 75%; }
+
+.clear {
+  clear: both; }
