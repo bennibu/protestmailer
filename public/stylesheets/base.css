@@ -30,13 +30,14 @@ a {
   height: 153px;
   width: 100%;
   font-size: 1.1em; }
-
-#header #slogan {
-  padding: 50px 0 0 20px; }
-
-#header h1 {
-  font-variant: small-caps;
-  font-size: 1.8em; }
+  #header #slogan {
+    padding: 50px 0 0 20px; }
+  #header h1 {
+    font-variant: small-caps;
+    font-size: 1.8em; }
+    #header h1 a {
+      color: #fff;
+      text-decoration: none; }
 
 #menu {
   height: 39px;
@@ -84,11 +85,14 @@ a {
 #footer {
   clear: both;
   border-top: 1px solid grey;
-  margin-top: 1em; }
-
-#footer a {
-  color: grey;
-  font-size: 0.8em; }
+  margin-top: 1em;
+  text-align: center; }
+  #footer ul li {
+    display: inline;
+    margin-right: 15px; }
+    #footer ul li a {
+      color: grey;
+      font-size: 0.8em; }
 
 #small_decription {
   font-size: 10px;

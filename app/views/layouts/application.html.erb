@@ -11,7 +11,7 @@
     <div id="container">
       <div id="header">
         <div id="slogan">
-          <h1>Vattenfall hat ausgekohlt!</h1>
+          <h1><a href="/">Vattenfall hat ausgekohlt!</a></h1>
           Vattenfall verklagt Klimaschützer. Tu etwas dagegen!
         </div>
       </div>
@@ -56,10 +56,12 @@
         </div>
       </div>
       <div id="footer">
-        <%= link_to "Startseite", root_path %>
-        <%= link_to "Impressum", :controller => "site", :action => "terms" %>
-        <%= link_to "Datenschutz", :controller => "site", :action => "privacy" %>
-        <%= link_to "Kontakt", :controller => "site", :action => "contact" %>
+        <ul>
+          <li><%= link_to "Startseite", root_path %></li>
+          <li><%= link_to "Impressum", :controller => "site", :action => "terms" %></li>
+          <li><%= link_to "Datenschutz", :controller => "site", :action => "privacy" %></li>
+          <li><%= link_to "Kontakt", :controller => "site", :action => "contact" %></li>
+        </ul>
       </div>
     </div>
   </body>
