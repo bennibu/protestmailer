@@ -13,6 +13,11 @@ class ProtestController < ApplicationController
     if @protest_mail.save
       flash[:notice] = "Protestmail wurde gespeichert aber noch nicht verschickt. Bitte schau in Deinem Postfach nach der Bestätigungsemail."
       Mailer.deliver_verification(@protest_mail)
+      # Save sender in the session cookie for tellafriend feature
+      session[:invitation] = {
+        :sender_name => @protest_mail.activist.name,
+        :sender_email => @protest_mail.activist.email
+      }
       redirect_to :action => 'verify'
     else
       render :action => 'new'
@@ -20,7 +25,7 @@ class ProtestController < ApplicationController
   end
 
   def verify
-    @invitation = Invitation.new
+    @invitation = Invitation.new(session[:invitation])
 
     if params[:token]
       @protest_mail = ProtestMail.find_by_token(params[:token])
