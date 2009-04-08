@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.recommend '/recommend', :controller => 'invitations', :action => 'new'
+  map.protest '/protest', :controller => 'protest', :action => 'new'
   map.root :controller => "site"
   # The priority is based upon order of creation: first created -> highest priority.
 

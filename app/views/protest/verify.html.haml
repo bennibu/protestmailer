@@ -4,52 +4,6 @@
   Du erhälst in diesen Momenten eine Email zu Bestätigung der Emailadresse.
   %br/
   Bitte schau in Deinem Account nach und bestätige den Brief an Vattenfall, indem Du auf den Link klickst.
-%p
-  Damit der Protest gegen Vattenfall richtig wirkt, müssen wir viele Menschen sein.
-  Du kannst diese Online-Aktion weiterempfehlen, indem Du hier eine Email an Freunde und Bekannte schickst:
-  %br/
 
-  %div#tellafriend
-    %p
-      = form_tag(:controller => 'tellafriend', :action => 'send_to_friends')
-
-      = hidden_field_tag('name', @protest_mail.activist.name)
-      = hidden_field_tag('ownmail', @protest_mail.activist.email)
-
-      %p
-        %h1 Freunde informieren
-        Ich möchte folgende Freunde über diese Online-Aktion informieren:
-        %br/
-
-      
-        %label{ :for => "email_1" } E-Mail 1:
-        = text_field_tag("email_1", nil, :class => "gross")
-        %br/
-
-        %label{ :for => "email_2" } E-Mail 2:
-        = text_field_tag("email_2", nil, :class => "gross")
-        %br/
-
-        %label{ :for => "email_3" } E-Mail 3:
-        = text_field_tag("email_3", nil, :class => "gross")
-        %br/
-
-        %label{ :for => "email_4" } E-Mail 4:
-        = text_field_tag("email_4", nil, :class => "gross")
-
-        %div#small_decription
-          Diese Emailadressen werden von uns nicht gespeichert, sondern dienen nur zum Verschicken der Empfehlung!
-
-      %p
-        Ich möchte folgende Bemerkung in die Mail an meine Freunde einfügen:
-        %br/
-        %br/
-        = text_area_tag("message", nil, :size => "30x5")
-
-      %p#tellafriend_submit
-        = submit_tag(value = "Freunde informieren")
-
-  %br/
- 
-  
+= render :partial => 'invitations/form'
   

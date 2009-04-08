@@ -1,0 +1,44 @@
+%p
+  Damit der Protest gegen Vattenfall richtig wirkt, müssen wir viele Menschen sein.
+  Du kannst diese Online-Aktion weiterempfehlen, indem Du hier eine Email an Freunde und Bekannte schickst:
+.form
+  - form_for(@invitation, :url => {:controller => 'invitations', :action => 'create'}) do |form|
+    = form.error_messages :header_message => "Einladung konnte nicht verschickt werden."
+
+    %h3 Empfänger
+    %p Ich möchte folgende Freunde über diese Online-Aktion informieren:
+    #recipients
+      .group
+        .left
+          %label{:for => "invitation_recipient_email"} E-Mail:
+        .right
+          = form.text_field :recipient_email, :size => 20
+        .clear
+      = render :partial => 'invitations/recipient', :collection => @invitation.recipients
+    = add_recipient_link "Weiteren Empfänger hinzufügen"
+
+    %h3 Absender
+    %p Meine Angaben, damit meine Freunde wissen wer ihnen die Online-Aktion empfiehlt:
+    .group
+      .left
+        %label{ :for => "invitation_sender_name" } Eigener Name:
+      .right
+        = form.text_field :sender_name, :size => 20
+      .clear
+    .group
+      .left
+        %label{ :for => "invitation_sender_email" } Eigene E-Mail:
+      .right
+        = form.text_field :sender_email, :size => 20
+      .clear
+
+    %p
+      Ich möchte folgende Bemerkung in die Mail an meine Freunde einfügen:
+      %br/
+      = form.text_area :message, :size => "30x5"
+
+    %p
+      = form.submit "Freunde informieren"
+
+    #small_decription
+      Die Daten werden von uns nicht gespeichert, sondern dienen nur zum Verschicken der Empfehlung!
