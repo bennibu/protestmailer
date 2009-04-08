@@ -17,14 +17,17 @@ class Invitation
     @message = attributes[:message] if attributes[:message]
   end
 
-  validates_presence_of :recipient_email, :sender_name, :sender_email, :recipients
+  validates_presence_of :recipient_email, :sender_name, :sender_email
   validates_format_of :sender_email, :recipient_email, :with => EMAIL_REGEX
   validate :recipients_addresses
 
   # Send mails to recipient_email and other recipients
   def send_mails
-    recipients.push(recipient_email).each do |email|
-      Mailer.deliver_invitation(email, sender_email, sender_name, message)
+    Mailer.deliver_invitation(recipient_email, sender_email, sender_name, message)
+    unless recipients.blank?
+      recipients.each do |email|
+        Mailer.deliver_invitation(email, sender_email, sender_name, message)
+      end
     end
   end
   
