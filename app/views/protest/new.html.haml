@@ -4,33 +4,28 @@
 
 %p Wir lassen uns Klimaschutz nicht verbieten – erst recht nicht von Vattenfall! Für den sofortigen Baustopp des Kohlekraftwerks in Hamburg-Moorburg, für die Rücknahme der Strafanzeige gegen die Klimaschützer/innen – hier den vorformulierten Brief unterschreiben oder selbst etwas schreiben und Druck machen:
 
-%p
-  Diese Email verschicken wir in Deinem Auftrag an:
-  %ul
-    %li Lars Göran Josefsson (Vorstandsvorsitzender Vattenfall AB)
-    %li Tuomo Hatakka (Vorstandsvorsitzender Vattenfall Europe AG)
-    %li Reinhardt Hassa (Vorstandssprecher der Vattenfall Europe Generation AG)
-    %li Heinrich Breuer (Chef Kraftwerksmanagement bei Vattenfall Europa Generation)
-    %li Maud Olofsson (Schwedische Wirtschaftsministerin als Eigner von Vattenfall)
-    %li Andreas Carlgren (Schwedischer Umweltminister als Eigner von Vattenfall)
-    %li Vattenfall-Kundendienst Berlin
-    %li Vattenfall Kundendienst Hamburg
-    %li Vattenfall Pressestelle
-    %li Carl XIV. Gustav (König von Schweden als Eigner von Vattenfall)
-
 .form
   - form_for(@protest_mail, :url => {:controller => 'protest', :action => 'create'}) do |mail_form|
     = mail_form.error_messages :header_message => 'Ihre Angaben sind unvollständig'
 
-    %h3 Ihre persönlichen Daten
+    %h3 Dein Protestbrief an Vattenfall
+    %p
+      Der Brief geht an den Vorstand von Vattenfall und direkt an die Kundenzentren in Berlin und Hamburg.
+      = link_to_function "Alle Empfänger", "Element.toggle('recipients')"
+      #recipients{:style => "display:none"}
+        %ul
+          %li Lars Göran Josefsson (Vorstandsvorsitzender Vattenfall AB)
+          %li Tuomo Hatakka (Vorstandsvorsitzender Vattenfall Europe AG)
+          %li Reinhardt Hassa (Vorstandssprecher der Vattenfall Europe Generation AG)
+          %li Heinrich Breuer (Chef Kraftwerksmanagement bei Vattenfall Europa Generation)
+          %li Maud Olofsson (Schwedische Wirtschaftsministerin als Eigner von Vattenfall)
+          %li Andreas Carlgren (Schwedischer Umweltminister als Eigner von Vattenfall)
+          %li Vattenfall-Kundendienst Berlin
+          %li Vattenfall Kundendienst Hamburg
+          %li Vattenfall Pressestelle
+          %li Carl XIV. Gustav (König von Schweden als Eigner von Vattenfall)
+
     - mail_form.fields_for :activist do |activist_form|
-      .group
-        .left
-          %label{ :for => "protest_mail_activist_attributes_title" } Anrede*/Titel:
-        .right
-          = activist_form.select :sex, [["Frau", 0], ["Herr", 1]]
-          = activist_form.text_field :title, :size => 10
-        .clear
       .group
         .left
           %label{ :for => "protest_mail_activist_attributes_forename" } Vor*-/Name*:
@@ -60,7 +55,7 @@
       .group
         .right
           = activist_form.check_box :newsletter, :checked => "checked"
-          %small Bitte informieren Sie mich über den Fortgang dieser und weiterer Aktionen.
+          %small Bitte informiere mich über den Fortgang dieser und weiterer Aktionen.
         .clear
 
 
@@ -78,6 +73,4 @@
 
     %p
       = mail_form.submit "Protestbrief verschicken"
-      |
-      = link_to "Abbrechen", :back
 

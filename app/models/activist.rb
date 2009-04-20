@@ -25,8 +25,7 @@ class Activist < ActiveRecord::Base
   EMAIL_REGEX       = /\A#{EMAIL_NAME_REGEX}@#{DMOAIN_HEAD_REGEX}#{DOMAIN_TLD_REGEX}\z/i
 
 
-  validates_presence_of :sex, :forename, :surename, :street, :zipcode, :city, :email
-  validates_numericality_of :sex, :in => 0..1
+  validates_presence_of :forename, :surename, :street, :zipcode, :city, :email
   validates_length_of :forename, :surename, :street, :zipcode, :city, :email, :in => 2..255
   validates_format_of :email, :with => EMAIL_REGEX, :message => "sollte wie eine gültige Email-Adresse aussehen."
 
