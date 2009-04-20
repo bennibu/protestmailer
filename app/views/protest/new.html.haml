@@ -1,12 +1,22 @@
 - title "Mitmachen!"
 
+%p Vattenfall verklagt Klimaschützer/innen – hier online demonstrieren und Email an den Vattenfall Vorstand verschicken.
+
+%p Wir lassen uns Klimaschutz nicht verbieten – erst recht nicht von Vattenfall! Für den sofortigen Baustopp des Kohlekraftwerks in Hamburg-Moorburg, für die Rücknahme der Strafanzeige gegen die Klimaschützer/innen – hier den vorformulierten Brief unterschreiben oder selbst etwas schreiben und Druck machen:
+
 %p
-  Schreib dem Vattenfall Vorstand Deine Meinung!
-  Den vorformulierten Text kannst Du anpassen und mit Name, Adresse und Email (nötig zur Bestätigung) versenden.
-  Dieser Brief geht an:
+  Diese Email verschicken wir in Deinem Auftrag an:
   %ul
-    %li Tuomas Hataka (Vorstandsvorsitzender Vattenfall Europe AG)
-    %li \...
+    %li Lars Göran Josefsson (Vorstandsvorsitzender Vattenfall AB)
+    %li Tuomo Hatakka (Vorstandsvorsitzender Vattenfall Europe AG)
+    %li Reinhardt Hassa (Vorstandssprecher der Vattenfall Europe Generation AG)
+    %li Heinrich Breuer (Chef Kraftwerksmanagement bei Vattenfall Europa Generation)
+    %li Maud Olofsson (Schwedische Wirtschaftsministerin als Eigner von Vattenfall)
+    %li Andreas Carlgren (Schwedischer Umweltminister als Eigner von Vattenfall)
+    %li Vattenfall-Kundendienst Berlin
+    %li Vattenfall Kundendienst Hamburg
+    %li Vattenfall Pressestelle
+    %li Carl XIV. Gustav (König von Schweden als Eigner von Vattenfall)
 
 .form
   - form_for(@protest_mail, :url => {:controller => 'protest', :action => 'create'}) do |mail_form|

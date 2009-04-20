@@ -1,7 +1,7 @@
 class Mailer < ActionMailer::Base
   
   def verification(protest_mail)
-    subject    "[Kampagnenname] Bitte bestätige Deine Teilnahme"
+    subject    "[ausgekohlt!] Bitte bestätige Deine Teilnahme"
     recipients protest_mail.activist.email
     from       APP_CONFIG[:mail_sender]
     

@@ -4,15 +4,30 @@ development: &defaults
   protest_mail:
     recipients:
       - benni <benni@bad_company.local>
-    subject: Vattenfall sucks!
+    subject: Vattenfall verklagt KlimaschützerInnen
     body:
-      Ein langer Text ...
+      "„Ich kann nicht verstehen, warum junge Leute nicht massenhaft Bagger blockieren und sie davon abhalten, Kohlekraftwerke zu bauen.“ (Al Gore, Träger des Friedensnobelpreises)
 
-      Mit vielen Absätzen
 
-      noch einer
+      Sehr geehrte(r) Dame/Herr,
 
-      nund noch einerr
+
+      am 20. August setzten sich in Hamburg-Moorburg Menschen entschlossen für den Schutz des Klimas ein: Sie besetzten die Baustelle des von Ihrem Unternehmen geplanten Kohlekraftwerks und versuchten mit zivilem Ungehorsam, den Weiterbau des Klima-Killers zu stoppen. Mit diesem Schreiben möchte ich meine Sympathie und volle Unterstützung für die Aktivist/innen ausdrücken.
+
+
+      Der Klimawandel zieht schon jetzt dramatische Folgen nach sich und lässt deswegen kein Zögern mehr zu: Da in Hamburg weder Appelle und Demonstrationen noch ein Politikwechsel dazu führen, dass Ihr Unternehmen seine empörenden Investitionspläne fallen lässt, ist das Mittel des zivilen Ungehorsams angebracht und legitim. Es ist ein Skandal, dass ausgerechnet Vattenfall, einer der größten Emittenten von Kohlendioxid in Europa, nun Klimaschützer vor Gericht stellen lässt!
+
+
+      Persönlich war ich leider nicht über die Bauplatzbesetzung informiert. Aber ich kann Ihnen versichern: Hätten es die Umstände zugelassen, wäre ich ebenfalls auf das Gelände gegangen. Bei folgenden Aktionen gegen das geplante Kraftwerk in Hamburg-Moorburg werde ich mich mit Sicherheit aktiv beteiligen!
+
+
+      In Berlin-Klingenberg hat ihr Unternehmen gerade anerkannt, dass sich Energiepolitik nicht gegen den Willen der Menschen machen lässt – und setzt daher auf erneuerbare Energien. Das muss auch für Hamburg möglich sein!\n
+
+
+      Ich fordere Sie auf: Stoppen Sie die Strafverfolgung von Klimaschützern, stoppen Sie den Bau des Klima-Killers in Hamburg-Moorburg!
+
+
+      Mit klimafreundlichen Grüßen,"
   notification:
     error_recipients:
       - admin@kampagnenslogan.local
