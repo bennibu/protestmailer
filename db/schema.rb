@@ -12,15 +12,12 @@
 ActiveRecord::Schema.define(:version => 20090326120345) do
 
   create_table "activists", :force => true do |t|
-    t.integer  "sex",        :limit => 1, :default => 0
-    t.string   "title"
     t.string   "forename"
     t.string   "surename"
     t.string   "street"
     t.string   "zipcode"
     t.string   "city"
     t.string   "email"
-    t.string   "job"
     t.boolean  "newsletter"
     t.datetime "created_at"
   end
