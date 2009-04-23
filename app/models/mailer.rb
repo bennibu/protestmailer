@@ -14,6 +14,7 @@ class Mailer < ActionMailer::Base
     subject    protest_mail.subject
     recipients recipient
     from       "#{protest_mail.activist.name} <#{protest_mail.activist.email}>"
+    headers    'Sender' => APP_CONFIG[:mail_sender]
     
     body       :protest_mail => protest_mail,
                :activist => protest_mail.activist
@@ -28,13 +29,14 @@ class Mailer < ActionMailer::Base
                :activist => protest_mail.activist
   end
 
-  def invitation(to_email, from_email, from_name, message)
+  def invitation(invitation, recipient)
     subject       APP_CONFIG[:invitation]['subject']
-    recipients    to_email
-    from          from_email
+    recipients    recipient
+    from          APP_CONFIG[:mail_sender]
 
-    body          :from_name => from_name.gsub(/<\/?[^>]*>/,  ""),
-                  :message => message.gsub(/<\/?[^>]*>/,  "")
+    body          :from_name => invitation.sender_name.gsub(/<\/?[^>]*>/,  ""),
+                  :from_email => invitation.sender_email.gsub(/<\/?[^>]*>/,  ""),
+                  :message => invitation.message.gsub(/<\/?[^>]*>/,  "")
   end
 
 end

@@ -23,10 +23,10 @@ class Invitation
 
   # Send mails to recipient_email and other recipients
   def send_mails
-    Mailer.deliver_invitation(recipient_email, sender_email, sender_name, message)
+    Mailer.deliver_invitation(self, recipient_email)
     unless recipients.blank?
       recipients.each do |email|
-        Mailer.deliver_invitation(email, sender_email, sender_name, message)
+        Mailer.deliver_invitation(self, email)
       end
     end
   end

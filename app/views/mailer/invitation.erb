@@ -1,11 +1,12 @@
 Hallo!
 
-Sie wurden von <%= @from_name %> eingeladen an einer Online-Aktion...
+Du wurdest von <%= @from_name %> (<%= @from_email %>) eingeladen bei der Online-Kampange Vattenfall ausgekohlt! mitzumachen.
 
-
-Folgende persönliche Nachricht sollen wir Ihnen von <%= @from_name %> zustellen:
+Folgende persönliche Nachricht sollen wir Dir von <%= @from_name %> zustellen:
 
 <%= @message %>
+
+Hier kannst du mitmachen: <%= APP_CONFIG[:base_url] %>
 
 Klima-Killer vor Gericht, Klimaschützer freisprechen!
 
