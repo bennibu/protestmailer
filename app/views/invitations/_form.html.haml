@@ -1,9 +1,10 @@
-%p
-  Damit der Protest gegen Vattenfall richtig wirkt, müssen wir viele Menschen sein.
-  Du kannst diese Online-Aktion weiterempfehlen, indem Du hier eine Email an Freunde und Bekannte schickst:
 .form
   - form_for(@invitation, :url => {:controller => 'invitations', :action => 'create'}) do |form|
     = form.error_messages :header_message => "Einladung konnte nicht verschickt werden."
+    %h3 Weitersagen
+    %p
+      Damit der Protest gegen Vattenfall richtig wirkt, müssen wir viele Menschen sein.
+      Du kannst diese Online-Aktion weiterempfehlen, indem Du hier eine Email an Freunde und Bekannte schickst:
 
     %h3 Empfänger
     %p Ich möchte folgende Freunde über diese Online-Aktion informieren:

@@ -31,8 +31,7 @@ class ProtestController < ApplicationController
       @protest_mail = ProtestMail.find_by_token(params[:token])
       if @protest_mail
         if @protest_mail.send_at.nil?
-          Mailer.deliver_protest_mail(@protest_mail)
-          @protest_mail.update_attribute(:send_at, Time.now)
+          @protest_mail.deliver_protest!
           flash[:notice] = "Der Protestbrief wurde versand!"
           redirect_to :action => 'delivered'
         else

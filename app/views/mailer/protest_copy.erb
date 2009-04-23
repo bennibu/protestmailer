@@ -1,0 +1,15 @@
+Hallo <%= @activist.name %>,
+
+vielen Dank für Deine Teilnahme an der Aktion vattenfall.ausgekohlt.
+
+Spendenaufforderung?
+
+Nachfolgend bekommst du nochmal den Text Deines Protestbriefes als Kopie:
+
+Betreff: <%= @protest_mail.subject %>
+
+<%= @protest_mail.body %>
+
+--
+Vattenfall ausgekohlt!
+Im Internet unter: <%= APP_CONFIG[:base_url] %>

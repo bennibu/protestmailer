@@ -57,7 +57,10 @@
           = activist_form.check_box :newsletter, :checked => "checked"
           %small Bitte informiere mich über den Fortgang dieser und weiterer Aktionen.
         .clear
-
+      .group
+        .right= mail_form.submit "Protestbrief verschicken"
+        .clear
+      %br/
 
     %h3 Folgende E-Mail wird an Vattenfall gesendet
     .group

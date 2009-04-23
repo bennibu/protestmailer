@@ -26,6 +26,14 @@ class ProtestMail < ActiveRecord::Base
 
   accepts_nested_attributes_for :activist
 
+  def deliver_protest!
+    APP_CONFIG[:protest_mail]["recipients"].each do |recipient|
+       Mailer.deliver_protest_mail(self, recipient)
+    end
+    Mailer.deliver_protest_copy(self)
+    self.update_attribute(:send_at, Time.now)
+  end
+
   protected
 
   def set_token

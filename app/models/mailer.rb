@@ -10,11 +10,20 @@ class Mailer < ActionMailer::Base
                :link => "#{APP_CONFIG[:base_url]}/protest/verify?token=#{protest_mail.token}"
   end
 
-  def protest_mail(protest_mail)
+  def protest_mail(protest_mail, recipient)
     subject    protest_mail.subject
-    recipients APP_CONFIG[:protest_mail]['recipients']
+    recipients recipient
     from       "#{protest_mail.activist.name} <#{protest_mail.activist.email}>"
     
+    body       :protest_mail => protest_mail,
+               :activist => protest_mail.activist
+  end
+
+  def protest_copy(protest_mail)
+    subject    "[ausgekohlt!] Vielen Dank für Deine Teilnahme"
+    recipients protest_mail.activist.email
+    from       APP_CONFIG[:mail_sender]
+
     body       :protest_mail => protest_mail,
                :activist => protest_mail.activist
   end
