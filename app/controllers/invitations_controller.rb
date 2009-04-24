@@ -8,7 +8,7 @@ class InvitationsController < ApplicationController
     if @invitation.valid?
       @invitation.send_mails
       flash[:notice] = "Deine Freunde wurden soeben informiert"
-      redirect_to :action => 'new'
+      redirect_to root_path
     else
       render :action => 'new'
     end
