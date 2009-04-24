@@ -20,8 +20,8 @@
           <li><%= link_to "Mitmachen", :controller => 'protest' -%></li>
           <li><%= link_to "News", :controller => 'site', :action => "news" -%></li>
           <li><%= link_to "Unterstützerinnen", :controller => 'site', :action => "supported" -%></li>
+          <li><%= link_to "Spenden", :controller => 'site', :action => "donate" -%></li>
           <li><%= link_to "Hintergrund", :controller => 'site', :action => "story" -%></li>
-          <li><%= link_to "Materialien", :controller => 'site', :action => "materials" -%></li>
         </ul>
       </div>
       <div id="content">
@@ -45,13 +45,13 @@
               <%= link_to image_tag("symbol_news.png", :mouseover => "symbol_news_down.png"), {:controller => 'site', :action => "news"}, :title => "aktuelle Neuigkeiten" -%>
             </div>
             <div class="button">
-              <%= link_to image_tag("symbol_unterstuetzer.png", :mouseover => "symbol_unterstuetzer_down.png"), {:controller => 'site', :action => "supported"}, :title => "aktuelle Neuigkeiten" -%>
+              <%= link_to image_tag("symbol_unterstuetzer.png", :mouseover => "symbol_unterstuetzer_down.png"), {:controller => 'site', :action => "supported"}, :title => "Unterstützerinnen" -%>
             </div>
             <div class="button">
-              <%= link_to image_tag("symbol_hintergrund.png", :mouseover => "symbol_hintergrund_down.png"), {:controller => 'site', :action => "story"}, :title => "aktuelle Neuigkeiten" -%>
+              <%= link_to image_tag("symbol_spenden.png", :mouseover => "symbol_spenden_down.png"), {:controller => 'site', :action => "donate"}, :title => "Spenden" -%>
             </div>
             <div class="button">
-              <%= link_to image_tag("symbol_materialien.png", :mouseover => "symbol_materialien_down.png"), {:controller => 'site', :action => "materials"}, :title => "aktuelle Neuigkeiten" -%>
+              <%= link_to image_tag("symbol_hintergrund.png", :mouseover => "symbol_hintergrund_down.png"), {:controller => 'site', :action => "story"}, :title => "Hintegrund" -%>
             </div>
           </div>
         </div>
