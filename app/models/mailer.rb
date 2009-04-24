@@ -14,7 +14,8 @@ class Mailer < ActionMailer::Base
     subject    protest_mail.subject
     recipients recipient
     from       "#{protest_mail.activist.name} <#{protest_mail.activist.email}>"
-    headers    'Sender' => APP_CONFIG[:mail_sender]
+    headers    'Sender' => APP_CONFIG[:mail_sender], 'Errors-To' => APP_CONFIG[:mail_sender],
+               'Return-path' => APP_CONFIG[:mail_sender]
     
     body       :protest_mail => protest_mail,
                :activist => protest_mail.activist
