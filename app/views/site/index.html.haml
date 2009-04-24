@@ -1,12 +1,19 @@
-%h3
-  Vattenfall verklagt Klimaschützer/innen –
-  = link_to "Jetzt online demonstrieren!", :controller => 'protest'
+- title "Vattenfall verklagt KlimaschützerInnen"
 
 %p
   Mehr als 30 Klimaschützer/innen hatten im letzten Sommer die Baustelle des geplanten Kohlekraftwerks
   in Hamburg-Moorburg besetzt. Im Rahmen eines Klimacamps hissten sie auf einem Kran das Banner „Stromkonzerne enteignen!“,
   was bundesweit für Aufsehen sorgte. Nun versucht Vattenfall, die KlimaschützerInnen für ihre Aktion zivilen Ungehorsams
   zur Kasse zu bitten – und baut täglich weiter an seinem Klima-Killer.
+
+#protest-box
+  .button
+    = link_to image_tag("symbol_mitmachen.png", :mouseover => "symbol_mitmachen_down.png"), {:controller => 'protest'}, :title => "Mitmachen"
+  %p
+    Der nächste Gerichtstermin ist schon am XXX.
+    %br/
+    Jetzt Protestmail verschicken und Vattenfall stoppen!
+  .clear
 
 %h3 Klimasünder bestraft Klimaschützer?
 %p

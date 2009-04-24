@@ -66,7 +66,8 @@ a {
   #main ul {
     margin-bottom: 1em; }
     #main ul li {
-      margin-left: 2em; }
+      margin-left: 2em;
+      margin-top: .3em; }
   #main a {
     color: #000; }
 
@@ -178,3 +179,16 @@ a {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc; }
+
+#protest-box {
+  margin: 1em auto;
+  width: 30em;
+  background-color: #F9F9F9;
+  border: 1px solid #777777;
+  padding: 5px; }
+  #protest-box .button {
+    float: right;
+    margin-left: 1em; }
+
+ul#supporter {
+  font-size: 1.1em; }
