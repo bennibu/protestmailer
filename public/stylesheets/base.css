@@ -192,3 +192,12 @@ a {
 
 ul#supporter {
   font-size: 1.1em; }
+
+.news {
+  margin: 5px;
+  padding: 5px; }
+  .news .date {
+    font-weight: bold;
+    font-size: 1.4em; }
+  .news .header h3 {
+    margin: 5px 0; }

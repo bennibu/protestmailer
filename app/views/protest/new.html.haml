@@ -10,20 +10,22 @@
 
     %h3 Dein Protestbrief an Vattenfall
     %p
-      Der Brief geht an den Vorstand von Vattenfall und direkt an die Kundenzentren in Berlin und Hamburg.
+      Der Brief geht an den Vorstand von Vattenfall, die schwedische
+      Regierung als Eigentümer des Energiekonzerns und an die Kundenzentren in
+      Berlin und Hamburg.
       = link_to_function "Alle Empfänger", "Element.toggle('recipients')"
       #recipients{:style => "display:none"}
         %ul
           %li Lars Göran Josefsson (Vorstandsvorsitzender Vattenfall AB)
           %li Tuomo Hatakka (Vorstandsvorsitzender Vattenfall Europe AG)
           %li Reinhardt Hassa (Vorstandssprecher der Vattenfall Europe Generation AG)
-          %li Heinrich Breuer (Chef Kraftwerksmanagement bei Vattenfall Europa Generation)
+          %li Heinrich Breuer (Chef Kraftwerksmanagement bei Vattenfall Europe Generation)
+          %li Carl XIV. Gustav (König von Schweden als Eigner von Vattenfall)
           %li Maud Olofsson (Schwedische Wirtschaftsministerin als Eigner von Vattenfall)
           %li Andreas Carlgren (Schwedischer Umweltminister als Eigner von Vattenfall)
-          %li Vattenfall-Kundendienst Berlin
+          %li Vattenfall Kundendienst Berlin
           %li Vattenfall Kundendienst Hamburg
           %li Vattenfall Pressestelle
-          %li Carl XIV. Gustav (König von Schweden als Eigner von Vattenfall)
 
     - mail_form.fields_for :activist do |activist_form|
       .group
@@ -76,4 +78,6 @@
 
     %p
       = mail_form.submit "Protestbrief verschicken"
+    #small_decription
+      Um größtmögliche Privatsspähre zu wahren werden die Daten verschlüsselt auf unseren Server übertragen.
 
