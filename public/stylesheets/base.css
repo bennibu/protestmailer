@@ -74,10 +74,10 @@ a {
 #sidebar {
   float: right;
   width: 154px;
-  background: #fff url(../images/sidebar-corner.png) no-repeat top left; }
+  background: #fff url(../images/sidebar-corner.png) no-repeat top right; }
   #sidebar .inner {
     background: #485057 url(../images/sidebar-corner-bl.png) no-repeat bottom left;
-    padding-top: 5px;
+    margin-top: 5px;
     padding-bottom: 20px; }
   #sidebar .button {
     text-align: center;
