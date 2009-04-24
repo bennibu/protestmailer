@@ -25,8 +25,6 @@ class ProtestController < ApplicationController
   end
 
   def verify
-    @invitation = Invitation.new(session[:invitation])
-
     if params[:token]
       @protest_mail = ProtestMail.find_by_token(params[:token])
       if @protest_mail
@@ -42,6 +40,8 @@ class ProtestController < ApplicationController
         flash[:error] = "Adresse ist ungültig. Bitte erneut versuchen"
         redirect_to protest_path
       end
+    else
+      @invitation = Invitation.new(session[:invitation] || {})
     end
   end
 
