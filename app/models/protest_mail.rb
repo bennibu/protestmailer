@@ -26,6 +26,8 @@ class ProtestMail < ActiveRecord::Base
 
   accepts_nested_attributes_for :activist
 
+  named_scope :deliverd, :conditions => "send_at IS NOT NULL"
+
   def deliver_protest!
     APP_CONFIG[:protest_mail]["recipients"].each do |recipient|
        Mailer.deliver_protest_mail(self, recipient)

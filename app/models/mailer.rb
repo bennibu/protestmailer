@@ -40,4 +40,13 @@ class Mailer < ActionMailer::Base
                   :message => invitation.message.gsub(/<\/?[^>]*>/,  "")
   end
 
+  def stats
+    subject       "Protestmailer Statistiken"
+    recipients    APP_CONFIG[:mail_sender]
+    from          APP_CONFIG[:mail_sender]
+
+    body          :total => ProtestMail.count,
+                  :delivered => ProtestMail.deliverd.count,
+                  :last_hour => ProtestMail.count(:conditions => ["created_at >= ?", 1.hour.ago])
+  end
 end
