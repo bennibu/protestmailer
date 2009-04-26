@@ -40,7 +40,7 @@ a {
       text-decoration: none; }
 
 #menu {
-  height: 39px;
+  height: 38px;
   background-image: url(../images/menu-bg.png);
   font-variant: small-caps;
   margin-top: 1px; }
@@ -74,9 +74,9 @@ a {
 #sidebar {
   float: right;
   width: 154px;
-  background: #fff url(../images/sidebar-corner.png) no-repeat top right; }
+  background-color: #A0A0A0; }
   #sidebar .inner {
-    background: #485057 url(../images/sidebar-corner-bl.png) no-repeat bottom left;
+    background: #A0A0A0 url(../images/sidebar-corner-bl.png) no-repeat bottom left;
     margin-top: 5px;
     padding-bottom: 20px; }
   #sidebar .button {
