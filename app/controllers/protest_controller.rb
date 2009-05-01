@@ -1,4 +1,6 @@
 class ProtestController < ApplicationController
+  
+  skip_before_filter :verify_authenticity_token # Avoid problems with deactivated cookies
 
   def new
     @protest_mail = ProtestMail.new(
