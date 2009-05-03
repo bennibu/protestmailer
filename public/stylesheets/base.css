@@ -195,7 +195,9 @@ ul#supporter {
 
 .news {
   margin: 5px;
-  padding: 5px; }
+  padding: 5px;
+  margin-bottom: 2em;
+  background-color: #F9F9F9; }
   .news .date {
     font-weight: bold;
     font-size: 1.4em; }
