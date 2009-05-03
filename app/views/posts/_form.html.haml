@@ -2,29 +2,35 @@
   = f.error_messages
 
   %p
-    Erstellt am:
+    %b Erstellt am:
     = I18n.l Time.now
   %p
-    Ort:
+    %b Zuletzt bearbeitet:
+    = I18n.l Time.now
+  %p
+    %b Ort:
     %br/
     = f.text_field :location
   %p
-    Titel:
+    %b Titel:
     %br/
     = f.text_field :title, :size => 52
   %p
-    Inhalt:
+    %b Inhalt:
     %small
       Der Inhalt wird mit 
       = link_to_function "markdown", "Element.toggle('markdown-help')"
       ausgeben.
     #markdown-help{:style => "display:none"}
-      :plain
-        Link: [Linkname](http://addresse.net "Linktitel")<br />
-        *kursiv*<br />
-        **Fett**<br />
-        * erster Listenpunkt<br />
-        * zweiter Listenpunkt<br />
+      %p
+        %b Markdown Syntax:
+        %br/
+        :plain
+          [Linkname](http://addresse.net "Linktitel")<br />
+          *kursiv*<br />
+          **Fett**<br />
+          * erster Listenpunkt<br />
+          * zweiter Listenpunkt<br />
       %p
         Übersicht über alle Formatierungen:
         = link_to "Markdown Cheatsheet", "http://packetlife.net/static/cheatsheets/markdown.pdf", :target => '_blank'
