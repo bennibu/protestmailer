@@ -1,0 +1,24 @@
+- title "News anzeigen"
+
+.news
+  %p
+    %b Erstellt am:
+    = I18n.l @post.created_at
+  %p
+    %b Zuletzt bearbeitet am:
+    = I18n.l @post.updated_at
+  %p
+    %b Ort:
+    = @post.location
+  %p
+    %b Titel:
+    = @post.title
+  %p
+    %b Inhalt:
+    = markdown @post.body
+%p
+  = link_to "Bearbeiten", edit_post_path(@post)
+  |
+  = link_to "Löschen", @post, :method => :delete, :confirm => "Bist Du sicher?"
+  |
+  = link_to "Übersicht", posts_path
