@@ -23,5 +23,5 @@
     - starts = i.day.ago.beginning_of_day
     - ends = starts.end_of_day
     %tr
-      %td= I18n.l starts, :format => "%d. %b"
+      %td= I18n.l starts, :format => "%a, %d. %b"
       %td.right= ProtestMail.count(:conditions => ["created_at >= ? AND created_at < ?", starts, ends])
