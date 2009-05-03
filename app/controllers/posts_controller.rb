@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  layout 'admin'
   before_filter :authenticate_admin
   
   # GET /posts
