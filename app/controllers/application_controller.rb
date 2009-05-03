@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  def authenticate_admin
+    authenticate_or_request_with_http_basic do |user_name, password|
+      user_name == 'admin' && password == APP_CONFIG[:admin_password]
+    end
+  end
 end

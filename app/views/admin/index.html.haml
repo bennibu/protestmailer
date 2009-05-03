@@ -1,0 +1,27 @@
+- title "Administration"
+
+%p
+  = link_to "News verwalten", posts_path
+
+%h3 Statistik
+
+%table
+  %tr
+    %th{:colspan => 2} Zusammenfassung
+  %tr
+    %td Bisher mitgemacht
+    %td.right= ProtestMail.count
+  %tr
+    %td davon bestätigt
+    %td.right= ProtestMail.deliverd.count
+  %tr
+    %td noch offen
+    %td.right= ProtestMail.count - ProtestMail.deliverd.count
+  %tr
+    %th{:colspan => 2} Historie
+  - 14.times do |i|
+    - starts = i.day.ago.beginning_of_day
+    - ends = starts.end_of_day
+    %tr
+      %td= I18n.l starts, :format => "%d. %b"
+      %td.right= ProtestMail.count(:conditions => ["created_at >= ? AND created_at < ?", starts, ends])
