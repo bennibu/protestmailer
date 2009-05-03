@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090326120345) do
+ActiveRecord::Schema.define(:version => 20090503120414) do
 
   create_table "activists", :force => true do |t|
     t.string   "forename"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 20090326120345) do
     t.string   "email"
     t.boolean  "newsletter"
     t.datetime "created_at"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "location"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "protest_mails", :force => true do |t|

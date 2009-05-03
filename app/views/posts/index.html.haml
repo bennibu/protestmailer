@@ -1,0 +1,16 @@
+- title "News Übersicht"
+
+%p
+  = link_to "Neue News erstellen", new_post_path
+
+%table
+  %tr
+    %th Datum
+    %th Titel
+  - for post in @posts
+    %tr
+      %td= I18n.l post.created_at, :format => "%d.%m.%Y"
+      %td= post.title
+      %td= link_to "Anzeigen", post
+      %td= link_to "Bearbeiten", edit_post_path(post)
+      %td= link_to "Löschen", post, :method => :delete, :confirm => "Willst du wirklich die Nachricht löschen?"

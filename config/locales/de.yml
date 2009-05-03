@@ -122,6 +122,7 @@ de:
       protest_mail: Protestmail
       activist: Aktivistin
       invitation: Einladung
+      post: Newsbeitrag
       
     attributes:
       protest_mail:
@@ -141,3 +142,7 @@ de:
         sender_name: Absendername
         sender_email: Absender E-Mail
         message: Nachricht
+      post:
+        location: Ort
+        title: Titel
+        body: Inhalt

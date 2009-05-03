@@ -1,0 +1,22 @@
+- form_for @post do |f|
+  = f.error_messages
+
+  %p
+    Datum:
+    = I18n.l Time.now
+  %p
+    Ort:
+    %br/
+    = f.text_field :location
+  %p
+    Titel:
+    %br/
+    = f.text_field :title, :size => 52
+  %p
+    Inhalt:
+    %br/
+    = f.text_area :body, :size => '60x20'
+  %p
+    = f.submit "Speichern"
+    |
+    = link_to "Abbrechen", :back

@@ -37,6 +37,7 @@ development: &defaults
   invitation:
     subject: Einladung zur Online-Aktion
 
+  admin_password: secret
 test:
   <<: *defaults
   base_url: http://localhost:3000

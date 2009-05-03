@@ -1,41 +1,10 @@
 - title "News"
 
-.news
-  .header
-    %span.date 21.04.2009
-    Hamburg, Gegenstrom08
-    %h3
-      Klimaaktivisten freigesprochen - Gericht stellt Rechtswidrigkeit der
-      Versammlungsauflösung fest
-  .body
-    %p
-      Zum heutigen Freispruch von zwei Klimaaktivisten durch das Hamburger
-      Amtsgericht erklärt die Aktion Gegenstrom08:
-    %p
-      Mit dem heutigen Urteil hat das Hamburger Amtsgericht unsere Auffassung
-      bestätigt, dass die Auflösung der Kundgebung vor der Kraftwerksbaustelle
-      in Moorburg am 20. August 2008 rechtswidrig war.
-    %p
-      "Dieser Schluss war überfällig.", so Björn Thoeroe, einer der
-      Angeklagten, dazu. "Nach diesem Verstoß gegen die Versammlungsfreiheit
-      wurden AktivistInnen jetzt noch ein halbes Jahr mit Bußgeldverfahren
-      schikaniert."
-    %p
-      Am 20. August hatte die Polizei eine Kundgebung von KlimaaktivistInnen
-      vor der Baustelle des Kohlekraftwerks Moorburg aufgelöst.
-      TeilnehmerInnen des Klimacamps solidarisierten sich dort mit einer
-      Aktion auf der Baustelle, bei der KletterInnen einen Kran besetzt und
-      dort ein Transparent mit der Aufschrift "Stromkonzerne enteignen"
-      entrollt hatten.
-    %p
-      Als Folge der Versammlungsauflösung leitete die Polizei Bußgeldverfahren
-      gegen über 50 TeilnehmerInnen ein, die auch nach den Widersprüchen
-      aufrechterhalten wurden.
-    %p
-      Auf Betreiben von Vattenfall stehen jetzt noch KlimaschützerInnen vor
-      Gericht, die an der Besetzung der Baustelle teilgenommen haben sollen.
-      "Wir verteidigen die Legitimität der Besetzung und weisen auch diese
-      Repression zurück.", so Felix Pithan. "Vor Gericht gehört Vattenfall für
-      seine klimazerstörende und unsoziale Geschäftspolitik.".
-    %p
-      Björn Thoeroe und Felix Pithan von Gegenstrom08
+- for post in Post.all
+  .news
+    .header
+      %span.date= I18n.l post.created_at, :format => "%d. %b %Y"
+      = post.location
+      %h3= post.title
+    .body
+      = simple_format post.body
