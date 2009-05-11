@@ -54,6 +54,12 @@
           = activist_form.text_field :email, :size => 30
         .clear
       .group
+        .left
+          %label{ :for => "protest_mail_activist_attributes_email_confirmation" } E-Mail bestätigen*:
+        .right
+          = activist_form.text_field :email_confirmation, :size => 30
+        .clear
+      .group
         .right
           = activist_form.check_box :newsletter, :checked => "checked"
           %small Bitte informiere mich über den Fortgang dieser und weiterer Aktionen.
