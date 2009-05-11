@@ -33,7 +33,7 @@ class Mailer < ActionMailer::Base
   def invitation(invitation, recipient)
     subject       APP_CONFIG[:invitation]['subject']
     recipients    recipient
-    from          APP_CONFIG[:mail_sender]
+    from          invitation.sender_email.gsub(/<\/?[^>]*>/,  "")
 
     body          :from_name => invitation.sender_name.gsub(/<\/?[^>]*>/,  ""),
                   :from_email => invitation.sender_email.gsub(/<\/?[^>]*>/,  ""),
