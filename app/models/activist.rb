@@ -26,8 +26,16 @@ class Activist < ActiveRecord::Base
   validates_length_of :forename, :surename, :street, :zipcode, :city, :email, :in => 2..255
   validates_format_of :email, :with => EMAIL_REGEX, :message => "sollte wie eine gültige Email-Adresse aussehen."
 
+  before_validation_on_create :remove_whitspaces_on_email_end
+
   def name
     "#{forename} #{surename}"
+  end
+
+  protected
+
+  def remove_whitspaces_on_email_end
+    email.gsub!(/\ +\z/, "")
   end
 
 end
