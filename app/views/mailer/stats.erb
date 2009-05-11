@@ -1,13 +1,15 @@
 Aktivitäten des Protestmailers:
 
-Bisher mitgemacht: <%= @total %>
-davon bestätigt:   <%= @delivered %>
-noch offen:        <%= @total - @delivered %>
+<%= @total %> haben schon mitgemacht
+<%= @delivered %> bestätigt
+<%= @total - @delivered %> bleiben offen
 
 
-letzten Stunde:    <%= @last_hour %>
+<%= @last_hour %> in der letzten Stunde
+
+letzte Woche:
 <% 7.times do |i| -%>
   <% starts = i.day.ago.beginning_of_day
      ends = starts.end_of_day -%>
-     <%= starts.strftime("%d. %b") %>:    <%= ProtestMail.count(:conditions => ["created_at >= ? AND created_at < ?", starts, ends]) %>
+<%= starts.strftime("%d. %b") %>:    <%= ProtestMail.count(:conditions => ["created_at >= ? AND created_at < ?", starts, ends]) %>
 <% end -%>
