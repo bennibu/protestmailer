@@ -27,12 +27,12 @@
 %p
   %b HTML-Inhalt:
   %small (Sehen die meisten Aktivisten)
-.news= @newsletter.content_html('name' => "Magda Mustermensch")
+.news= @newsletter.html
  
 %p
   %b Text-Inhalt:
   %small (Für alle, die mit HTML-Mails Probleme haben)
-.news= simple_format @newsletter.content_plain('name' => "Magda Mustermensch")
+.news= simple_format @newsletter.plain
 
 %p
   = link_to "Bearbeiten", edit_newsletter_path(@newsletter)

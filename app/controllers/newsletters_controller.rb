@@ -80,7 +80,7 @@ class NewslettersController < ApplicationController
     newsletter = Newsletter.find(params[:id])
     recipient = params[:prompt_reply].blank? ? APP_CONFIG[:mail_sender] : params[:prompt_reply]
 
-    Mailer.deliver_newsletter(newsletter, Activist.new(:forename => 'Tim', :surename => 'Tester', :email => recipient))
+    Mailer.deliver_newsletter(newsletter.subject, newsletter.plain, newsletter.html, recipient, recipient)
 
     flash[:notice] = "Testmail wurde an #{recipient} verschickt."
     redirect_to newsletter

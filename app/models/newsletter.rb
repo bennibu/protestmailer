@@ -1,23 +1,25 @@
 class Newsletter < ActiveRecord::Base
 
   validates_presence_of :subject, :content
-
-
-  def content_html(variables = nil)
-    BlueCloth.new(replace_var(variables)).to_html
+  
+  def content_html
+    BlueCloth.new(content).to_html
   end
 
-  def content_plain(variables = nil)
-    replace_var(variables)
-  end
-
-  def replace_var(variables = nil)
-    if variables
-      for key,value in variables
-        content.gsub!(/\{\{#{key}\}\}/, value)
-      end
-    end
+  def content_plain
     content
+  end
+
+  def replace_name(text, name = "Magda Mustermensch")
+    text.gsub(/\{\{name\}\}/, name)
+  end
+
+  def html
+    replace_name(content_html)
+  end
+
+  def plain
+    replace_name(content_plain)
   end
   
 end

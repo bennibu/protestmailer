@@ -50,12 +50,15 @@ class Mailer < ActionMailer::Base
                   :last_hour => ProtestMail.count(:conditions => ["created_at >= ?", 1.hour.ago])
   end
 
-  def newsletter(newsletter, activist)
-    subject       newsletter.subject
-    recipients    "#{activist.name} <#{activist.email}>"
+  def newsletter(subject_text, body_plain, body_html, activist_name, activist_email)
+    subject       subject_text
+    recipients    "#{activist_name} <#{activist_email}>"
     from          APP_CONFIG[:mail_sender]
     content_type "multipart/alternative"
 
-    body          :newsletter => newsletter, :activist => activist
+    part :content_type => "text/html",
+      :body => body_html
+    part :content_type => "text/plain",
+      :body => body_plain
   end
 end

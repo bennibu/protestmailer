@@ -4,10 +4,20 @@ task :send_newsletter => :environment do
 
   unless newsletter.send_at
     puts "#{Time.now}: Begin sending newsletter ##{newsletter.id}"
+
     newsletter.update_attribute(:send_at, Time.now)
-    
+
+    # Build html and plain text once to save memory
+    content_html = newsletter.content_html
+    content_plain = newsletter.content_plain
+
     for activist in Activist.want_news
-      Mailer.deliver_newsletter(newsletter, activist)
+      # Replace variables in text with activists info
+      html = newsletter.replace_name(content_html, activist.name)
+      plain = newsletter.replace_name(content_plain, activist.name)
+
+      # Deliver mail
+      Mailer.deliver_newsletter(newsletter.subject, plain, html, activist.name, activist.email)
     end
 
     puts "#{Time.now}: Delivering finished."
