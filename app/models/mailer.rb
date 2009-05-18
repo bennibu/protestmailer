@@ -56,9 +56,9 @@ class Mailer < ActionMailer::Base
     from          APP_CONFIG[:mail_sender]
     content_type "multipart/alternative"
 
-    part :content_type => "text/html",
-      :body => body_html
     part :content_type => "text/plain",
       :body => body_plain
+    part :content_type => "text/html",
+      :body => body_html
   end
 end
