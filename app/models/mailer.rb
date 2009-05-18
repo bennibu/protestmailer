@@ -49,4 +49,13 @@ class Mailer < ActionMailer::Base
                   :delivered => ProtestMail.deliverd.count,
                   :last_hour => ProtestMail.count(:conditions => ["created_at >= ?", 1.hour.ago])
   end
+
+  def newsletter(newsletter, activist)
+    subject       newsletter.subject
+    recipients    "#{activist.name} <#{activist.email}>"
+    from          APP_CONFIG[:mail_sender]
+    content_type "text/html"
+
+    body          :content => newsletter.formatted_content('name' => activist.name)
+  end
 end

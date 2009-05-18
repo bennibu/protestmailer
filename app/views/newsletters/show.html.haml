@@ -1,5 +1,14 @@
 - title "Newsletter anzeigen"
 
+%p
+  = link_to "Bearbeiten", edit_newsletter_path(@newsletter)
+  |
+  = link_to "Löschen", @newsletter, :method => :delete, :confirm => "Bist Du sicher?"
+  |
+  = link_to "Übersicht", newsletters_path
+  |
+  = link_to "Versende Testnewsletter", send_test_newsletter_path(@newsletter)
+
 .news
   %p
     %b Erstellt am:
@@ -12,7 +21,7 @@
     = @newsletter.subject
   %p
     %b Inhalt:
-    = markdown @newsletter.parse_content('name' => "Magda Mustermensch")
+    = @newsletter.formatted_content('name' => "Magda Mustermensch")
 %p
   = link_to "Bearbeiten", edit_newsletter_path(@newsletter)
   |

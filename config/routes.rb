@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :newsletters
+  map.resources :newsletters, :member => {:send_test => :get}
   map.resources :posts
 
   map.recommend '/recommend', :controller => 'invitations', :action => 'new'

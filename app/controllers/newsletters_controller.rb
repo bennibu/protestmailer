@@ -75,4 +75,14 @@ class NewslettersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def send_test
+    newsletter = Newsletter.find(params[:id])
+    recipient = params[:recipient] || APP_CONFIG[:mail_sender]
+
+    Mailer.deliver_newsletter(newsletter, Activist.new(:forename => 'Tim', :surename => 'Tester', :email => recipient))
+
+    flash[:notice] = "Testmail wurde an #{recipient} verschickt."
+    redirect_to newsletter
+  end
 end
