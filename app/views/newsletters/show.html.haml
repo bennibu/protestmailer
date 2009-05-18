@@ -6,8 +6,11 @@
   = link_to "Löschen", @newsletter, :method => :delete, :confirm => "Bist Du sicher?"
   |
   = link_to "Übersicht", newsletters_path
-  |
-  = link_to "Versende Testnewsletter", send_test_newsletter_path(@newsletter)
+  - unless @newsletter.send_at
+    |
+    = link_to "Versende Testnewsletter", send_test_newsletter_path(@newsletter)
+    |
+    = link_to "Newsletter abschicken!", deliver_newsletter_path(@newsletter), :confirm => "Willst Du wirklich, dass der Newsletter verschickt wird?"
 
 .news
   %p
@@ -16,6 +19,9 @@
   %p
     %b Zuletzt bearbeitet am:
     = I18n.l @newsletter.updated_at
+  %p
+    %b Verschickt am:
+    = I18n.l @newsletter.send_at if @newsletter.send_at
   %p
     %b Betreff:
     = @newsletter.subject

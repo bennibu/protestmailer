@@ -29,6 +29,8 @@ class Activist < ActiveRecord::Base
 
   before_validation_on_create :remove_whitspaces_on_email_end
 
+  named_scope :want_news, :conditions => {:newsletter => true}
+
   def name
     "#{forename} #{surename}"
   end

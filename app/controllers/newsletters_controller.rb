@@ -85,4 +85,17 @@ class NewslettersController < ApplicationController
     flash[:notice] = "Testmail wurde an #{recipient} verschickt."
     redirect_to newsletter
   end
+
+  def deliver
+    newsletter = Newsletter.find(params[:id])
+
+    unless newsletter.send_at
+      call_rake :send_newsletter, :newsletter_id => newsletter.id
+      flash[:notice] = "Newsletter wird verschickt"
+    else
+      flash[:error] = "Achtung, der newsletter wurde schon einmal verschickt."
+    end
+
+    redirect_to newsletter
+  end
 end
