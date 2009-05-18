@@ -3,14 +3,21 @@ class Newsletter < ActiveRecord::Base
   validates_presence_of :subject, :content
 
 
-  def formatted_content(variables = nil)
-    r = BlueCloth.new(content)
+  def content_html(variables = nil)
+    BlueCloth.new(replace_var(variables)).to_html
+  end
+
+  def content_plain(variables = nil)
+    replace_var(variables)
+  end
+
+  def replace_var(variables = nil)
     if variables
       for key,value in variables
-        r.gsub!(/\{\{#{key}\}\}/, value)
+        content.gsub!(/\{\{#{key}\}\}/, value)
       end
     end
-    r.to_html
+    content
   end
   
 end

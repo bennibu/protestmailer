@@ -54,8 +54,8 @@ class Mailer < ActionMailer::Base
     subject       newsletter.subject
     recipients    "#{activist.name} <#{activist.email}>"
     from          APP_CONFIG[:mail_sender]
-    content_type "text/html"
+    content_type "multipart/alternative"
 
-    body          :content => newsletter.formatted_content('name' => activist.name)
+    body          :newsletter => newsletter, :activist => activist
   end
 end
