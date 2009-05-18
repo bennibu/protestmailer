@@ -12,27 +12,28 @@
     |
     = link_to "Newsletter abschicken!", deliver_newsletter_path(@newsletter), :confirm => "Willst Du wirklich, dass der Newsletter verschickt wird?"
 
-.news
-  %p
-    %b Erstellt am:
-    = I18n.l @newsletter.created_at
-  %p
-    %b Zuletzt bearbeitet am:
-    = I18n.l @newsletter.updated_at
-  %p
-    %b Verschickt am:
-    = I18n.l @newsletter.send_at if @newsletter.send_at
-  %p
-    %b Betreff:
-    = @newsletter.subject
-  %p
-    %b HTML-Inhalt:
-    %small (Sehen die meisten Aktivisten)
-    = @newsletter.content_html('name' => "Magda Mustermensch")
-  %p
-    %b Text-Inhalt:
-    %small (Für alle, die mit HTML-Mails Probleme haben)
-    = simple_format @newsletter.content_plain('name' => "Magda Mustermensch")
+%p
+  %b Erstellt am:
+  = I18n.l @newsletter.created_at
+%p
+  %b Zuletzt bearbeitet am:
+  = I18n.l @newsletter.updated_at
+%p
+  %b Verschickt am:
+  = I18n.l @newsletter.send_at if @newsletter.send_at
+%p
+  %b Betreff:
+  = @newsletter.subject
+%p
+  %b HTML-Inhalt:
+  %small (Sehen die meisten Aktivisten)
+.news= @newsletter.content_html('name' => "Magda Mustermensch")
+ 
+%p
+  %b Text-Inhalt:
+  %small (Für alle, die mit HTML-Mails Probleme haben)
+.news= simple_format @newsletter.content_plain('name' => "Magda Mustermensch")
+
 %p
   = link_to "Bearbeiten", edit_newsletter_path(@newsletter)
   |
