@@ -1,0 +1,18 @@
+- title "Newsletter Übersicht"
+
+%p
+  = link_to "Neuen Newsletter erstellen", new_newsletter_path
+
+%table
+  %tr
+    %th Erstellt
+    %th Versendet
+    %th Betreff
+  - for newsletter in @newsletters
+    %tr
+      %td= I18n.l newsletter.created_at, :format => "%d.%m.%Y"
+      %td= I18n.l newsletter.send_at, :format => "%d.%m.%Y" if newsletter.send_at
+      %td= newsletter.subject
+      %td= link_to "Anzeigen", newsletter
+      %td= link_to "Bearbeiten", edit_newsletter_path(newsletter)
+      %td= link_to "Löschen", newsletter, :method => :delete, :confirm => "Willst du wirklich die Nachricht löschen?"

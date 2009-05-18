@@ -17,23 +17,7 @@
     = f.text_field :title, :size => 52
   %p
     %b Inhalt:
-    %small
-      Der Inhalt wird mit 
-      = link_to_function "markdown", "Element.toggle('markdown-help')"
-      ausgeben.
-    #markdown-help{:style => "display:none"}
-      %p
-        %b Markdown Syntax:
-        %br/
-        :plain
-          [Linkname](http://addresse.net "Linktitel")<br />
-          *kursiv*<br />
-          **Fett**<br />
-          * erster Listenpunkt<br />
-          * zweiter Listenpunkt<br />
-      %p
-        Übersicht über alle Formatierungen:
-        = link_to "Markdown Cheatsheet", "http://packetlife.net/static/cheatsheets/markdown.pdf", :target => '_blank'
+    = render :partial => '/shared/markdown_help'
 
     = f.text_area :body, :size => '60x20'
   %p

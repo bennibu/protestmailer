@@ -1,0 +1,21 @@
+- title "Newsletter anzeigen"
+
+.news
+  %p
+    %b Erstellt am:
+    = I18n.l @newsletter.created_at
+  %p
+    %b Zuletzt bearbeitet am:
+    = I18n.l @newsletter.updated_at
+  %p
+    %b Betreff:
+    = @newsletter.subject
+  %p
+    %b Inhalt:
+    = markdown @newsletter.parse_content('name' => "Magda Mustermensch")
+%p
+  = link_to "Bearbeiten", edit_newsletter_path(@newsletter)
+  |
+  = link_to "Löschen", @newsletter, :method => :delete, :confirm => "Bist Du sicher?"
+  |
+  = link_to "Übersicht", newsletters_path

@@ -1,0 +1,15 @@
+- form_for @newsletter do |f|
+  = f.error_messages
+  %p
+    %b Betreff
+    %br/
+    = f.text_field :subject, :size => '60'
+  %p
+    %b Inhalt
+    = render :partial => '/shared/markdown_help'
+
+    = f.text_area :content, :size => '70x25'
+  %p
+    = f.submit "Speichern"
+
+%p= link_to "Zurück", newsletters_path
