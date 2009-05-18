@@ -26,11 +26,13 @@
     %b Betreff:
     = @newsletter.subject
   %p
-    %b Text-Inhalt:
-    = simple_format @newsletter.content_plain('name' => "Magda Mustermensch")
-  %p
     %b HTML-Inhalt:
+    %small (Sehen die meisten Aktivisten)
     = @newsletter.content_html('name' => "Magda Mustermensch")
+  %p
+    %b Text-Inhalt:
+    %small (Für alle, die mit HTML-Mails Probleme haben)
+    = simple_format @newsletter.content_plain('name' => "Magda Mustermensch")
 %p
   = link_to "Bearbeiten", edit_newsletter_path(@newsletter)
   |
