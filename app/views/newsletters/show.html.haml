@@ -8,7 +8,7 @@
   = link_to "Übersicht", newsletters_path
   - unless @newsletter.send_at
     |
-    = link_to "Versende Testnewsletter", send_test_newsletter_path(@newsletter)
+    = link_to "Versende Testnewsletter", send_test_newsletter_path(@newsletter), :prompt => "Bitte Empfänger-Email eingeben."
     |
     = link_to "Newsletter abschicken!", deliver_newsletter_path(@newsletter), :confirm => "Willst Du wirklich, dass der Newsletter verschickt wird?"
 

@@ -78,7 +78,7 @@ class NewslettersController < ApplicationController
 
   def send_test
     newsletter = Newsletter.find(params[:id])
-    recipient = params[:recipient] || APP_CONFIG[:mail_sender]
+    recipient = params[:prompt_reply].blank? ? APP_CONFIG[:mail_sender] : params[:prompt_reply]
 
     Mailer.deliver_newsletter(newsletter, Activist.new(:forename => 'Tim', :surename => 'Tester', :email => recipient))
 

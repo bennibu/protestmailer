@@ -1,0 +1,11 @@
+=======
+
+enhanced link_to method
+
+	link_to now accepts a :prompt option
+	
+	:prompt => "why?" attached to link_to will add js functions to your link that will cause a javascript prompt window containing the supplied text 'Why?'
+	
+	the supplied reason string will be posted to your controller as params[:prompt_reply} for further processing..
+	
+	simple enough... eh?
