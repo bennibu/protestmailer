@@ -11,13 +11,23 @@ task :send_newsletter => :environment do
     content_html = newsletter.content_html
     content_plain = newsletter.content_plain
 
+    container = []
     for activist in Activist.want_news
-      # Replace variables in text with activists info
-      html = newsletter.replace_name(content_html, activist.name)
-      plain = newsletter.replace_name(content_plain, activist.name)
+      unless container.include?(activist.email)	# Skip duplicate entries
+	
+	# Replace variables in text with activists info
+	html = newsletter.replace_name(content_html, activist.name)
+	plain = newsletter.replace_name(content_plain, activist.name)
 
-      # Deliver mail
-      Mailer.deliver_newsletter(newsletter.subject, plain, html, activist.name, activist.email)
+	begin
+	  # Deliver mail
+	  Mailer.deliver_newsletter(newsletter.subject, plain, html, activist.name, activist.email)
+	rescue => error
+	  puts "Error on #{activist.email}: #{error}"
+	end
+
+	container << activist.email
+      end
     end
 
     puts "#{Time.now}: Delivering finished."
