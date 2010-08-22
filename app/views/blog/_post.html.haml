@@ -1,0 +1,7 @@
+.news
+  .header
+    %span.date= I18n.l post.created_at, :format => "%d. %b %Y"
+    = post.location
+    %h3= link_to_blog_post(post)
+  .body
+    = formatted_post_excerpt post

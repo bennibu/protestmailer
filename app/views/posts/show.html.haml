@@ -15,7 +15,7 @@
     = @post.title
   %p
     %b Inhalt:
-    = markdown @post.body
+    = formatted_post @post
 %p
   = link_to "Bearbeiten", edit_post_path(@post)
   |

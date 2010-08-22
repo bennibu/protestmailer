@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: newsletters
+#
+#  id         :integer         not null, primary key
+#  subject    :string(255)
+#  content    :text
+#  send_at    :datetime
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Newsletter < ActiveRecord::Base
 
   validates_presence_of :subject, :content

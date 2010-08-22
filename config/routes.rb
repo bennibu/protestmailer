@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.blog '/blog', :controller => 'blog', :action => 'index'
+  map.blog_archive '/blog/archive', :controller => 'blog', :action => 'archive'
+  map.blog_post '/blog/:year/:month/:day/:id', :controller => 'blog', :action => 'show'
+
   map.site_link 'site/:id', :controller => 'site', :action => 'show'
   map.resources :pages
 

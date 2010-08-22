@@ -1,0 +1,5 @@
+<% title "Aktuelles" %>
+<%= render :collection => @posts, :partial => 'post' %>
+<p>
+  <%= link_to "Ältere News lesen ...", blog_archive_path %>
+</p>

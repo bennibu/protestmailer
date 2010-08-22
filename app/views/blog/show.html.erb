@@ -1,0 +1,9 @@
+<% title @post.title %>
+<div class="header">
+  <span class="date"><%= I18n.l @post.created_at, :format => "%d. %b %Y" %></span>
+  <%= @post.location %>
+</div>
+<div class="body">
+  <%= formatted_post @post %>
+</div>
+<%= link_to "Newsarchiv ansehen", blog_archive_path %>
