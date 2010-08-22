@@ -18,6 +18,7 @@
       <div id="menu">
         <ul>
           <li><%= link_to "Adminübersicht", :controller => 'admin' -%></li>
+          <li><%= link_to "Seiten verwalten", :controller => 'pages' -%></li>
           <li><%= link_to "News verwalten", :controller => 'posts' -%></li>
           <li><%= link_to "Newsletter verwalten", newsletters_path -%></li>
           <li><%= link_to "Zurück zur Startseite", root_path -%></li>
@@ -37,14 +38,7 @@
         </div>
       </div>
       <div class="clear"></div>
-      <div id="footer">
-        <ul>
-          <li><%= link_to "Startseite", root_path %></li>
-          <li><%= link_to "Impressum", :controller => "site", :action => "terms" %></li>
-          <li><%= link_to "Datenschutz", :controller => "site", :action => "privacy" %></li>
-          <li><%= link_to "Kontakt", :controller => "site", :action => "contact" %></li>
-        </ul>
-      </div>
+      <%= render 'shared/footer' %>
     </div>
   </body>
 </html>

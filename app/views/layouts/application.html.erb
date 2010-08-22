@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
     <title>ausgekohlt! - <%= yield(:title) -%></title>
@@ -18,10 +18,10 @@
       <div id="menu">
         <ul>
           <li><%= link_to "Mitmachen", :controller => 'protest' -%></li>
-          <li><%= link_to "News", :controller => 'site', :action => "news" -%></li>
-          <li><%= link_to "Unterstützerinnen", :controller => 'site', :action => "supported" -%></li>
-          <li><%= link_to "Spenden", :controller => 'site', :action => "donate" -%></li>
-          <li><%= link_to "Hintergrund", :controller => 'site', :action => "story" -%></li>
+          <li><%= link_to "News", site_link_path('aktuelles') -%></li>
+          <li><%= link_to "Unterstützerinnen", site_link_path('unterstutzerinnen') -%></li>
+          <li><%= link_to "Spenden", site_link_path('spenden') -%></li>
+          <li><%= link_to "Hintergrund", site_link_path('hintergrund') -%></li>
         </ul>
       </div>
       <div id="content">
@@ -45,26 +45,19 @@
               <%= link_to image_tag("symbol_news.png", :mouseover => "symbol_news_down.png"), {:controller => 'site', :action => "news"}, :title => "aktuelle Neuigkeiten" -%>
             </div>
             <div class="button">
-              <%= link_to image_tag("symbol_unterstuetzer.png", :mouseover => "symbol_unterstuetzer_down.png"), {:controller => 'site', :action => "supported"}, :title => "Unterstützerinnen" -%>
+              <%= link_to image_tag("symbol_unterstuetzer.png", :mouseover => "symbol_unterstuetzer_down.png"), site_link_path('unterstutzerinnen'), :title => "Unterstützerinnen" -%>
             </div>
             <div class="button">
-              <%= link_to image_tag("symbol_spenden.png", :mouseover => "symbol_spenden_down.png"), {:controller => 'site', :action => "donate"}, :title => "Spenden" -%>
+              <%= link_to image_tag("symbol_spenden.png", :mouseover => "symbol_spenden_down.png"), site_link_path('spenden'), :title => "Spenden" -%>
             </div>
             <div class="button">
-              <%= link_to image_tag("symbol_hintergrund.png", :mouseover => "symbol_hintergrund_down.png"), {:controller => 'site', :action => "story"}, :title => "Hintegrund" -%>
+              <%= link_to image_tag("symbol_hintergrund.png", :mouseover => "symbol_hintergrund_down.png"), site_link_path('hintergrund'), :title => "Hintegrund" -%>
             </div>
           </div>
         </div>
       </div>
       <div class="clear"></div>
-      <div id="footer">
-        <ul>
-          <li><%= link_to "Startseite", root_path %></li>
-          <li><%= link_to "Impressum", :controller => "site", :action => "terms" %></li>
-          <li><%= link_to "Datenschutz", :controller => "site", :action => "privacy" %></li>
-          <li><%= link_to "Kontakt", :controller => "site", :action => "contact" %></li>
-        </ul>
-      </div>
+      <%= render 'shared/footer' %>
     </div>
   </body>
 </html>

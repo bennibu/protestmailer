@@ -1,34 +1,3 @@
-- title "Vattenfall verklagt KlimaschützerInnen"
+- title page.title
 
-%p
-  Mehr als 30 Klimaschützer/innen hatten im letzten Sommer die Baustelle des geplanten Kohlekraftwerks
-  in Hamburg-Moorburg besetzt. Im Rahmen eines Klimacamps hissten sie auf einem Kran das Banner „Stromkonzerne enteignen!“,
-  was bundesweit für Aufsehen sorgte. Nun versucht Vattenfall, die KlimaschützerInnen für ihre Aktion zivilen Ungehorsams
-  zur Kasse zu bitten – und baut täglich weiter an seinem Klima-Killer.
-
-#protest-box
-  .button
-    = link_to image_tag("symbol_mitmachen.png", :mouseover => "symbol_mitmachen_down.png"), {:controller => 'protest'}, :title => "Mitmachen"
-  %p
-    Es wurden in den letzten 10 Tagen bereits über
-    %b 9.500 Protestmails
-    an Vattenfall versendet. Trotzdem hat Vattenfall den Strafantrag bisher nicht zurückgezogen. Jetzt noch mehr Druck machen und Vattenfall stoppen!
-  .clear
-
-%h3 Klimasünder bestraft Klimaschützer?
-%p
-  Verkehrte Welt: Vattenfall ist einer der größten Klimazerstörer Europas.
-  Und jetzt will der Konzern will auch noch Menschen bestrafen, die sich aktiv für Klimaschutz einsetzen!
-  Dabei haben sie mit der Besetzung der Baustelle nur das gemacht, was in Anbetracht der nahenden
-  Klimakatastrophe dringend notwendig ist: Sie haben versucht ein Bauvorhaben zu stoppen, welches das Klima
-  in den nächsten 40 Jahren mit Millionen von Tonnen CO<sub>2</sub> belasten würde.
-
-%h3 Vattenfall klagt an – Tu etwas dagegen!
-%p
-  Schick jetzt dem Vattenfall-Vorstand Deine Meinung: Beteilige Dich an der Aktion „ausgekohlt“
-  und fordere den Konzern auf, die Anzeigen sofort fallen zu lassen und die Bauarbeiten am
-  Klima-Killer in Hamburg-Moorburg einzustellen.
-  = link_to "Hier klicken!", :controller => 'protest'
-
-%h3 Klimaschutz statt Vattenfall
-%p Wir lassen uns Klimaschutz nicht verbieten – erst recht nicht von Vattenfall!
+= formatted_body(@page.body)

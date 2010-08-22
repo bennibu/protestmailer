@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.site_link 'site/:id', :controller => 'site', :action => 'show'
+  map.resources :pages
 
   map.resources :newsletters, :member => {:send_test => :post, :deliver => :get}
   map.resources :posts

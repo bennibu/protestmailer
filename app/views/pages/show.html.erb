@@ -1,0 +1,18 @@
+<p>
+  <b>Title:</b>
+  <%=h @page.title %>
+</p>
+
+<p>
+  <b>URL:</b>
+  <%= link_to @page.to_param, site_link_path(@page) %>
+</p>
+
+<p>
+  <b>Inhalt:</b>
+  <%= formatted_body @page.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

@@ -1,0 +1,24 @@
+<% form_for(@page) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.check_box :homepage %>
+    <%= f.label :homepage, "Startseite?" %>
+  </p>
+  <p>
+    <%= f.check_box :show_title %>
+    <%= f.label :show_title, "Title anzeigen?" %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= render :partial => '/shared/markdown_help' %>
+    <%= f.text_area :body, :size => "80x30" %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
