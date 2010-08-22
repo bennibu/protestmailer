@@ -3,6 +3,8 @@
 <html>
   <head>
     <title>ausgekohlt! - <%= yield(:title) -%></title>
+    <link rel="alternate" type="application/atom+xml" title="Ausgekohlt.net"
+          href="<%= url_for(:controller => 'blog', :format => :atom) %>" />
     <%= stylesheet_link_tag 'base' %>
     <%= javascript_include_tag 'prototype' %>
     <%= yield(:head) %>

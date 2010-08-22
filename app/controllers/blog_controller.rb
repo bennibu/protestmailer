@@ -1,7 +1,12 @@
 class BlogController < ApplicationController
 
   def index
-    @posts = Post.all(:limit => 3)
+    @posts = Post.all(:limit => 10)
+
+    respond_to do |format|
+      format.html
+      format.atom
+    end
   end
 
   def show
@@ -15,5 +20,4 @@ class BlogController < ApplicationController
   def archive
     @posts = Post.all
   end
-
 end
