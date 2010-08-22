@@ -1,5 +1,6 @@
 development: &defaults
   base_url: http://localhost:3000
+  mailer_enable: true
   mail_sender: info@kampagnenslogan.local
   protest_mail:
     recipients:

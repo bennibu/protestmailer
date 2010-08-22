@@ -1,6 +1,7 @@
 class ProtestController < ApplicationController
   
   skip_before_filter :verify_authenticity_token # Avoid problems with deactivated cookies
+  before_filter :mailer_status
 
   def new
     @protest_mail = ProtestMail.new(
@@ -48,6 +49,15 @@ class ProtestController < ApplicationController
   end
 
   def delivered
+  end
+
+  private
+
+  def mailer_status
+    unless APP_CONFIG[:mailer_enabled]
+      flash[:error] = "Die E-Mail-Funktion ist derzeit deaktiviert."
+      redirect_to root_url
+    end
   end
 
 end
