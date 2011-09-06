@@ -19,7 +19,7 @@
       </div>
       <div id="menu">
         <ul>
-          <li><%= link_to "Mitmachen", :controller => 'protest' -%></li>
+          <li><%= link_to "Mitmachen", site_link_path('mitmachen') -%></li>
           <li><%= link_to "News", blog_path -%></li>
           <li><%= link_to "Unterstützerinnen", site_link_path('unterstutzerinnen') -%></li>
           <li><%= link_to "Spenden", site_link_path('spenden') -%></li>
@@ -41,7 +41,7 @@
         <div id="sidebar">
           <div class="inner">
             <div class="button">
-              <%= link_to image_tag("symbol_mitmachen.png", :mouseover => "symbol_mitmachen_down.png"), {:controller => 'protest'}, :title => "Mitmachen" -%>
+              <%= link_to image_tag("symbol_mitmachen.png", :mouseover => "symbol_mitmachen_down.png"), site_link_path('mitmachen'), :title => "Mitmachen" -%>
             </div>
             <div class="button">
               <%= link_to image_tag("symbol_news.png", :mouseover => "symbol_news_down.png"), blog_path, :title => "aktuelle Neuigkeiten" -%>
