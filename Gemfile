@@ -1,7 +1,7 @@
 # A sample Gemfile
 source "http://rubygems.org"
 
-gem "rails", '2.3.10'
+gem "rails", '2.3.14'
 gem 'sqlite3-ruby', '1.2.4'
 
 gem 'BlueCloth', '1.0.1', :require => 'bluecloth'
