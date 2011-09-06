@@ -14,19 +14,19 @@ task :send_newsletter => :environment do
     container = []
     for activist in Activist.want_news
       unless container.include?(activist.email)	# Skip duplicate entries
-	
-	# Replace variables in text with activists info
-	html = newsletter.replace_name(content_html, activist.name)
-	plain = newsletter.replace_name(content_plain, activist.name)
 
-	begin
-	  # Deliver mail
-	  Mailer.deliver_newsletter(newsletter.subject, plain, html, activist.name, activist.email)
-	rescue => error
-	  puts "Error on #{activist.email}: #{error}"
-	end
+        begin
+          # Replace variables in text with activists info
+          html = newsletter.replace_name(content_html, activist.name)
+          plain = newsletter.replace_name(content_plain, activist.name)
 
-	container << activist.email
+          # Deliver mail
+          Mailer.deliver_newsletter(newsletter.subject, plain, html, activist.name, activist.email)
+        rescue => error
+          puts "Error on #{activist.email}: #{error}"
+        end
+
+        container << activist.email
       end
     end
 
