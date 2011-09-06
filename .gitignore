@@ -5,3 +5,5 @@ config/app_config.yml
 db/*.sqlite3
 nbproject/
 capfile
+.idea
+.rvmrc
